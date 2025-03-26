@@ -135,3 +135,11 @@ D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\tr\Microsoft.Cod
 D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

@@ -1,19 +1,67 @@
 [
   {
-    "ContainingType": "WebBackend.Controllers.Test",
-    "Method": "SendEmail",
-    "RelativePath": "api/Test",
+    "ContainingType": "WebBackend.Controllers.AuthController",
+    "Method": "PostUser",
+    "RelativePath": "api/auth",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "email",
+        "Name": "userDTO",
+        "Type": "WebBackend.Models.DTO.UserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebBackend.Controllers.AuthController",
+    "Method": "GetJWT",
+    "RelativePath": "api/auth/checkJWT",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDTO",
+        "Type": "WebBackend.Models.DTO.UserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebBackend.Controllers.AuthController",
+    "Method": "CheckCode",
+    "RelativePath": "api/auth/ckeckcode",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "message",
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebBackend.Controllers.AuthController",
+    "Method": "GetUserData",
+    "RelativePath": "api/auth/data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
         "Type": "System.String",
         "IsRequired": false
       }
