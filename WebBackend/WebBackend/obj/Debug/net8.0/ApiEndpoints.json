@@ -1,8 +1,60 @@
 [
   {
     "ContainingType": "WebBackend.Controllers.AuthController",
-    "Method": "PostUser",
-    "RelativePath": "api/auth",
+    "Method": "ConfirmCodeAsync",
+    "RelativePath": "api/auth/confirm-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "confirmData",
+        "Type": "WebBackend.Models.DTO.ConfirmCode",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebBackend.Controllers.AuthController",
+    "Method": "ExitUserAsync",
+    "RelativePath": "api/auth/exit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebBackend.Controllers.AuthController",
+    "Method": "LoginUserAsync",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginData",
+        "Type": "WebBackend.Models.DTO.Login",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebBackend.Controllers.AuthController",
+    "Method": "RefreshJwtTokenAsync",
+    "RelativePath": "api/auth/refresh-jwt",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebBackend.Controllers.AuthController",
+    "Method": "RegisterUserAsync",
+    "RelativePath": "api/auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -11,59 +63,6 @@
         "Name": "userDTO",
         "Type": "WebBackend.Models.DTO.UserDTO",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WebBackend.Controllers.AuthController",
-    "Method": "GetJWT",
-    "RelativePath": "api/auth/checkJWT",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userDTO",
-        "Type": "WebBackend.Models.DTO.UserDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WebBackend.Controllers.AuthController",
-    "Method": "CheckCode",
-    "RelativePath": "api/auth/ckeckcode",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "token",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "code",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WebBackend.Controllers.AuthController",
-    "Method": "GetUserData",
-    "RelativePath": "api/auth/data",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "token",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []

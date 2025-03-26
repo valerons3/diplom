@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tGFUO8UlJ6o=",
+  "dgSpecHash": "Q+sCal4QhZI=",
   "success": true,
   "projectFilePath": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\WebBackend.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\valer\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\valer\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\valer\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.3\\microsoft.aspnetcore.authentication.jwtbearer.8.0.3.nupkg.sha512",
     "C:\\Users\\valer\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
 using WebBackend.Data;
 using WebBackend.Models.DTO;
 using WebBackend.Models.Entity;
+using WebBackend.Repositories.Interfaces;
 using WebBackend.Services.Interfaces;
 
 namespace WebBackend.Controllers
@@ -15,115 +17,267 @@ namespace WebBackend.Controllers
         private readonly IRedisService redisService;
         private readonly ITokenService tokenService;
         private readonly IEmailService emailService;
+        private readonly IRefreshTokenRepository refreshTokenRepository;
+        private readonly IUserRepository userRepository;
+        private readonly IPasswordService passwordService;
+        private readonly IRoleRepository roleRepository;
+        private readonly IRevokedTokenRepository revokedTokenRepository;
         private readonly AppDbContext context;
         public AuthController(IRedisService redisService, ITokenService tokenService, IEmailService emailService,
-            AppDbContext context)
+            IRefreshTokenRepository refreshTokenRepository, IUserRepository userRepository,
+            IPasswordService passwordService, IRoleRepository roleRepository,
+            IRevokedTokenRepository revokedTokenRepository, AppDbContext context)
         {
             this.redisService = redisService;
             this.tokenService = tokenService;
             this.emailService = emailService;
+            this.refreshTokenRepository = refreshTokenRepository;
+            this.userRepository = userRepository;
+            this.passwordService = passwordService;
+            this.roleRepository = roleRepository;
+            this.revokedTokenRepository = revokedTokenRepository;
             this.context = context;
         }
 
-        [HttpPost("checkJWT")]
-        public async Task<IActionResult> GetJWT([FromBody] UserDTO userDTO)
+        [HttpPost("refresh-jwt")]
+        public async Task<IActionResult> RefreshJwtTokenAsync()
         {
-            var role = context.Roles.FirstOrDefault(r => r.Id == userDTO.RoleId);
-            User user = new User()
-            {
-                Id = Guid.NewGuid(),
-                Email = userDTO.Email,
-                FirstName = userDTO.FirstName,
-                LastName = userDTO.LastName,
-                PasswordHash = userDTO.PasswordHash,
-                RoleId = userDTO.RoleId,
-                Created = DateTime.UtcNow,
-                UserRole = role
-            };
+            string? refreshToken = Request.Headers["Refresh-Token"].FirstOrDefault();
+            string? jwtToken = Request.Headers["Authorization"]
+                            .FirstOrDefault()?
+                            .Replace("Bearer ", "", StringComparison.OrdinalIgnoreCase)
+                            .Trim();
 
-            var token = tokenService.GenerateJWTToken(user);
-            return Ok(token);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> PostUser([FromBody] UserDTO userDTO)
-        {
-            User user = new User()
+            if (refreshToken == null || jwtToken == null)
             {
-                Id = Guid.NewGuid(),
-                Email = userDTO.Email,
-                FirstName = userDTO.FirstName,
-                LastName = userDTO.LastName,
-                PasswordHash = userDTO.PasswordHash,
-                RoleId = userDTO.RoleId,
-                Created = DateTime.UtcNow
-            };
-            string code = tokenService.GenerateCode();
-            string token = tokenService.GenerateSessionToken();
-
-            var result = await emailService.SendEmailAsync(userDTO.Email, code);
-            if (!result.Success)
-            {
-                return BadRequest(result.message);
+                return BadRequest(new { message = "Нужно передать Refresh и JWT токены" });
             }
-            await redisService.PostUserDataAsync(user, token, code);
-            return Ok(token);
+
+            Guid userId;
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var securityToken = tokenHandler.ReadJwtToken(jwtToken);
+                var userIdClaim = securityToken.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
+
+                if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out userId))
+                {
+                    return Unauthorized(new { message = "Неверный формат ID в токене" });
+                }
+            }
+            catch
+            {
+                return Unauthorized(new { message = "Невалидный JWT токен" });
+            }
+
+
+            RefreshToken? token = await refreshTokenRepository.GetRefreshTokenAsync(refreshToken);
+            if (token == null)
+            {
+                return NotFound(new { message = "Токен не найден" });
+            }
+            if (refreshToken != token.token) { return BadRequest(new { message = "Не верный Refresh токен" }); }
+
+            if (token.ExpireDate <= DateTime.UtcNow)
+            {
+                var deleteResult = await refreshTokenRepository.DeleteRefreshTokenAsync(token);
+                if (!deleteResult.Success) { return StatusCode(500, new { message = deleteResult.Message }); }
+                return Unauthorized(new { message = "Срок действия токена истёк" });
+            }
+
+            User? user = await userRepository.GetEntityUserByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound(new { message = "Пользователь не найден" });
+            }
+
+            string newJWTToken = tokenService.GenerateJWTToken(user);
+            return Ok(new { JWT = newJWTToken });
         }
 
-        [HttpGet("ckeckcode")]
-        public async Task<IActionResult> CheckCode([FromQuery] string token, [FromQuery]string code)
+        [HttpPost("login")]
+        public async Task<IActionResult> LoginUserAsync([FromBody]Login loginData)
         {
-            var result =  await redisService.CheckEmailCodeAsync(token, code);
-            return Ok(result);
+            User? user = await userRepository.GetEntityUserByEmailAsync(loginData.Email);
+            if (user == null) { return BadRequest(new { message = "Не верный логин" }); }
+
+            bool passwordIsCorrect = passwordService.VerifyPassword(loginData.Password, user.PasswordHash);
+            if (!passwordIsCorrect)
+            {
+                return BadRequest(new { message = "Не верный пароль" });
+            }
+
+            string jwtToken = tokenService.GenerateJWTToken(user);
+            string refreshToken = tokenService.GenerateRefreshToken();
+
+            if (user.UserRefreshToken == null)
+            {
+                RefreshToken newRefreshToken = new RefreshToken()
+                {
+                    Id = Guid.NewGuid(),
+                    UserId = user.Id,
+                    token = refreshToken,
+                    ExpireDate = DateTime.UtcNow.AddDays(20)
+                };
+                var result = await refreshTokenRepository.PostRefreshTokenAsync(newRefreshToken);
+                if (!result.Success)
+                {
+                    return StatusCode(500, new { message = result.Message });
+                }
+                return Ok(new { JWT = jwtToken, Refresh = refreshToken });
+            }
+            else
+            {
+                var resultChangeRefresh = 
+                    await refreshTokenRepository.ChangeRefreshTokenByUserIdAsync(user.Id, refreshToken);
+                if (!resultChangeRefresh.Success) { return StatusCode(500, new { message = resultChangeRefresh.Message }); }
+                return Ok(new { JWT = jwtToken, Refresh = refreshToken });
+            }
         }
 
-        [HttpGet("data")]
-        public async Task<IActionResult> GetUserData([FromQuery] string token)
+        [HttpPost("exit")]
+        public async Task<IActionResult> ExitUserAsync()
         {
-            User user = await redisService.GetUserDataAsync(token);
-            return Ok(user);
+            string? jwtToken = Request.Headers["Authorization"]
+                            .FirstOrDefault()?
+                            .Replace("Bearer ", "", StringComparison.OrdinalIgnoreCase)
+                            .Trim();
+            Console.WriteLine(jwtToken);
+
+            if (jwtToken == null)
+            {
+                return BadRequest(new { message = "Нужно передать JWT токен" });
+            }
+
+            Guid userId;
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var securityToken = tokenHandler.ReadJwtToken(jwtToken);
+                var userIdClaim = securityToken.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
+
+                if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out userId))
+                {
+                    return Unauthorized(new { message = "Неверный формат ID в токене" });
+                }
+            }
+            catch
+            {
+                return Unauthorized(new { message = "Невалидный JWT токен" });
+            }
+
+            User? user = await userRepository.GetEntityUserByIdAsync(userId);
+            if (user == null) { return BadRequest(new { message = "Пользователь не найден" }); }
+
+            var resultDeleteRefresh = await refreshTokenRepository.DeleteRefreshTokenAsync(user.UserRefreshToken);
+            if (!resultDeleteRefresh.Success) { return StatusCode(500, new { message = resultDeleteRefresh.Message }); }
+
+            var revokeResult = await revokedTokenRepository.PostJWTTokenAsync(jwtToken);
+            if (!revokeResult.Success)
+            {
+                return StatusCode(500, new { message = "Ошибка при отзыве токена" });
+            }
+
+            return Ok(new
+            {
+                success = true,
+                message = "Выход выполнен успешно",
+                timestamp = DateTime.UtcNow
+            });
         }
-        //[HttpPost("register")]
-        //public async Task<IActionResult> RegisterUserAsync([FromBody] UserDTO userDTO)
-        //{
-        //    userDTO маппиться в User user
-
-        //    Генерируется токен сесии token, генерируется код code
 
 
-        //    token вместе с code и user сохранятеся в Redis
+        [HttpPost("confirm-code")]
+        public async Task<IActionResult> ConfirmCodeAsync([FromBody]ConfirmCode confirmData)
+        {
+            EmailVerificationStatus status = await redisService.CheckEmailCodeAsync(confirmData.Token, confirmData.Code);
 
-        //     token сессии отправляется обратно
-        //}
+            switch (status)
+            {
+                case EmailVerificationStatus.NotFound:
+                    return NotFound(new { message = "Код истёк, запросите заново" });
+                case EmailVerificationStatus.CodeInvalid:
+                    return BadRequest(new { message = "Не верный код подтверждения" });
+                case EmailVerificationStatus.CodeValid:
+                    var result = await PostUserAsync(confirmData.Token);
+                    if (result.Success) { return Ok(new { JWT = result.jwtToken, Refresh = result.refreshToken }); }
+                    else { return StatusCode(500, new { message = result.message }); }
+                default:
+                    return StatusCode(500, new { message = "Неизвестная ошибка" });
+            }
+        }
 
-        //[HttpPost("confirm")]
-        //public async Task<IActionResult> ConfirmUserCodeAsync([FromBody] ConfirmCode confirm)
-        //{
-        //    Ищем в Redis по токену сессии и проверяем код
+        private async Task<(bool Success, string? message, string? jwtToken, string? refreshToken)> PostUserAsync(string token)
+        {
+            User? user = await redisService.GetUserDataAsync(token);
+            if (user == null) { return (false, "Неизвестная ошибка", null, null); }
 
-        //    Если код верный, то достаём всю запись из redis в User user
+            var jwtToken = tokenService.GenerateJWTToken(user);
+            var refreshToken = tokenService.GenerateRefreshToken();
 
-        //     Генерируем Jwt токен и Refresh токен, записываем в базу данных
+            var resultPostUser = await userRepository.PostUserAsync(user);
+            if (!resultPostUser.Success) { return (false, resultPostUser.message, null, null); }
+
+            RefreshToken tokenRef = new RefreshToken()
+            {
+                Id = Guid.NewGuid(),
+                UserId = user.Id,
+                token = refreshToken,
+                ExpireDate = DateTime.UtcNow.AddDays(20)
+            };
+            var resultPostRefreshToken = await refreshTokenRepository.PostRefreshTokenAsync(tokenRef);
+            if (!resultPostRefreshToken.Success) { return (false, resultPostRefreshToken.Message, null, null); }
+
+            await redisService.DeleteDataAsync(token);
+
+            return (true, null, jwtToken, refreshToken);
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> RegisterUserAsync(UserDTO userDTO)
+        {
+
+            Guid? roleId = await roleRepository.GetIdRoleByNameAsync(userDTO.Role);
+            if (roleId == null)
+            {
+                return BadRequest(new { message = "Такой роли не существует" });
+            }
+
+            var existingUser = await userRepository.CheckUserExistsAsync(userDTO.Email);
+            if (existingUser.Success)
+            {
+                return BadRequest(new { message = existingUser.message });
+            }
+
+            string token = tokenService.GenerateSessionToken();
+            string code = tokenService.GenerateCode();
+
+            var codeSended = await emailService.SendEmailAsync(userDTO.Email, code);
+            if (!codeSended.Success)
+            {
+                return BadRequest(new
+                {
+                    message = codeSended.message ?? "Ошибка при отправке кода подтверждения"
+                });
+            }
 
 
-        //}
+            User user = new User()
+            {
+                Id = Guid.NewGuid(),
+                Email = userDTO.Email,
+                FirstName = userDTO.FirstName,
+                LastName = userDTO.LastName,
+                PasswordHash = passwordService.HashPassword(userDTO.Password),
+                RoleId = roleId.Value
+            };
+            var userDataIsCached = await redisService.PostUserDataAsync(user, token, code);
+            if (!userDataIsCached.Success)
+            {
+                return StatusCode(500, new { message = userDataIsCached.message });
+            }
 
-        //[HttpPost("refresh")]
-        //public async Task<IActionResult> RefreshJwtTokenAsync()
-        //{
-        //    Здесь получаем JWT токен вместе с refresh токеном
-        //     Извлекаем из JWT токена айди пользователя
-        //     Находим refresh токен по айди пользователя
-        //     Если токен не истёк, то генерируем новый JWT токен и отправляем
-        //}
-
-        //[HttpPost("login")]
-        //public Task<IActionResult> LoginUserAsync([FromBody] Login loginData)
-        //{
-        //    Проверяем пользователя в базе данных
-        //    Сверяем пароль, если правильный генерируем пару токенов
-        //    Обновляем refresh токен в базе данных
-        //}
-
+            return Ok(new { sessionToken = token });
+        }
     }
 }

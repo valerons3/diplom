@@ -7,8 +7,11 @@ using System.Reflection;
 using System.Text;
 using WebBackend.Configurations;
 using WebBackend.Data;
+using WebBackend.Repositories;
+using WebBackend.Repositories.Interfaces;
 using WebBackend.Services;
 using WebBackend.Services.Interfaces;
+using WebBackend.Swager;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +30,7 @@ builder.Services.AddSwaggerGen(options =>
 
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    options.OperationFilter<RefreshTokenOperationFilter>();
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -104,10 +108,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect(builder.Configuration.GetSection("Redis")["ConnectionString"]));
 
+// Services
 builder.Services.AddScoped<ITokenService, TokenService>();
-builder.Services.AddScoped<IEmailService, EmailSerice>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IRedisService, RedisService>();
+builder.Services.AddScoped<IPasswordService, PaaswordService>();
 
+// Repositories
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRevokedTokenRepository, RevokedTokenRepository>();
 
 
 var app = builder.Build();

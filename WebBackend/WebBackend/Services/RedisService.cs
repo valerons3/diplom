@@ -8,11 +8,16 @@ namespace WebBackend.Services
     public class RedisService : IRedisService
     {
         private readonly IDatabase database;
-        private readonly TimeSpan expiration = TimeSpan.FromMinutes(1); 
+        private readonly TimeSpan expiration = TimeSpan.FromMinutes(3); 
 
         public RedisService(IConnectionMultiplexer redis)
         {
             database = redis.GetDatabase();
+        }
+
+        public async Task DeleteDataAsync(string token)
+        {
+            await database.KeyDeleteAsync(token);
         }
 
         public async Task<(bool Success, string? message)> PostUserDataAsync(User user, string token, string code)
@@ -28,7 +33,7 @@ namespace WebBackend.Services
 
             return isSet
                 ? (true, null)
-                : (false, "Ошибка при сохранении данных в Redis.");
+                : (false, "Ошибка при сохранении данных в Redis");
         }
 
         public async Task<User?> GetUserDataAsync(string token)
@@ -40,13 +45,23 @@ namespace WebBackend.Services
             return storedData?.User;
         }
 
-        public async Task<bool> CheckEmailCodeAsync(string token, string code)
+        public async Task<EmailVerificationStatus> CheckEmailCodeAsync(string token, string code)
         {
             string? jsonData = await database.StringGetAsync(token);
-            if (jsonData == null) return false;
+
+            if (jsonData == null)
+            {
+                return EmailVerificationStatus.NotFound;
+            }
 
             var storedData = JsonSerializer.Deserialize<StoredUserData>(jsonData);
-            return storedData?.Code == code;
+
+            if (storedData?.Code == code)
+            {
+                return EmailVerificationStatus.CodeValid;
+            }
+
+            return EmailVerificationStatus.CodeInvalid;
         }
     }
 
