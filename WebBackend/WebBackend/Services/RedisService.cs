@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
 using StackExchange.Redis;
+using WebBackend.Models.DTO;
 using WebBackend.Models.Entity;
+using WebBackend.Models.Enums;
 using WebBackend.Services.Interfaces;
 
 namespace WebBackend.Services
@@ -65,9 +67,4 @@ namespace WebBackend.Services
         }
     }
 
-    internal class StoredUserData
-    {
-        public User User { get; set; } = default!;
-        public string Code { get; set; } = string.Empty;
-    }
 }

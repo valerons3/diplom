@@ -12,7 +12,7 @@
 
         public Role? UserRole { get; set; }
         public RefreshToken? UserRefreshToken { get; set; }
-        public List<ProccesedData>? UserProccesedData { get; set; } = [];
+        public List<ProcessedData>? UserProcessedData { get; set; } = [];
         public List<Statistic>? UserStatistics { get; set; } = [];
     }
 }

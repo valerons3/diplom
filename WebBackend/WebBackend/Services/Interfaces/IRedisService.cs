@@ -1,13 +1,8 @@
 ﻿using WebBackend.Models.Entity;
+using WebBackend.Models.Enums;
 
 namespace WebBackend.Services.Interfaces
 {
-    public enum EmailVerificationStatus
-    {
-        CodeValid,
-        CodeInvalid,
-        NotFound
-    }
     public interface IRedisService
     {
         public Task<(bool Success, string? message)> PostUserDataAsync(User user, string token, string code);

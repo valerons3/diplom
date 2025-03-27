@@ -7,6 +7,6 @@
         public string Comment { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
 
-        public ProccesedData? ProccesedData { get; set; }
+        public ProcessedData? ProccesedData { get; set; }
     }
 }

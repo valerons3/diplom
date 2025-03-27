@@ -5,6 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using WebBackend.Data;
 using WebBackend.Models.DTO;
 using WebBackend.Models.Entity;
+using WebBackend.Models.Enums;
 using WebBackend.Repositories.Interfaces;
 using WebBackend.Services.Interfaces;
 

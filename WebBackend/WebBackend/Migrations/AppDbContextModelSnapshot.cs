@@ -22,14 +22,14 @@ namespace WebBackend.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("WebBackend.Models.Entity.ProccesedData", b =>
+            modelBuilder.Entity("WebBackend.Models.Entity.ProcessedData", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<bool>("AtWork")
-                        .HasColumnType("boolean");
+                    b.Property<string>("CommentResult")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -38,10 +38,17 @@ namespace WebBackend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<DateTime?>("ProcessingTime")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<Guid?>("RatingId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("ResultData")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("UserId")
@@ -201,14 +208,14 @@ namespace WebBackend.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("WebBackend.Models.Entity.ProccesedData", b =>
+            modelBuilder.Entity("WebBackend.Models.Entity.ProcessedData", b =>
                 {
                     b.HasOne("WebBackend.Models.Entity.Rating", "Rating")
                         .WithOne("ProccesedData")
-                        .HasForeignKey("WebBackend.Models.Entity.ProccesedData", "RatingId");
+                        .HasForeignKey("WebBackend.Models.Entity.ProcessedData", "RatingId");
 
                     b.HasOne("WebBackend.Models.Entity.User", "User")
-                        .WithMany("UserProccesedData")
+                        .WithMany("UserProcessedData")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -263,7 +270,7 @@ namespace WebBackend.Migrations
 
             modelBuilder.Entity("WebBackend.Models.Entity.User", b =>
                 {
-                    b.Navigation("UserProccesedData");
+                    b.Navigation("UserProcessedData");
 
                     b.Navigation("UserRefreshToken");
 

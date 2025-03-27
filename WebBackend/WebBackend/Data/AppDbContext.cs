@@ -8,7 +8,7 @@ namespace WebBackend.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         
         public DbSet<User> Users { get; set; }
-        public DbSet<ProccesedData> ProccesedDatas { get; set; }
+        public DbSet<ProcessedData> ProccesedDatas { get; set; }
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<RevokedToken> RevokedTokens { get; set; }
@@ -29,7 +29,7 @@ namespace WebBackend.Data
                 .HasForeignKey<RefreshToken>(rt => rt.UserId);
 
             modelBuilder.Entity<User>()
-                .HasMany(u => u.UserProccesedData)
+                .HasMany(u => u.UserProcessedData)
                 .WithOne()
                 .HasForeignKey(s => s.UserId);
 
@@ -39,22 +39,26 @@ namespace WebBackend.Data
                 .HasForeignKey(s => s.UserId);
 
 
-            // Настройка ProccesedDatas
-            modelBuilder.Entity<ProccesedData>()
+            // Настройка ProcessedDatas
+            modelBuilder.Entity<ProcessedData>()
                 .HasOne(pr => pr.User)
-                .WithMany(u => u.UserProccesedData)
+                .WithMany(u => u.UserProcessedData)
                 .HasForeignKey(pr => pr.UserId);
 
-            modelBuilder.Entity<ProccesedData>()
+            modelBuilder.Entity<ProcessedData>()
                 .HasOne(pr => pr.Rating)
                 .WithOne(r => r.ProccesedData)
-                .HasForeignKey<ProccesedData>(pr => pr.RatingId);
+                .HasForeignKey<ProcessedData>(pr => pr.RatingId);
+
+            modelBuilder.Entity<ProcessedData>()
+                .Property(p => p.Status)
+                .HasConversion<string>();
 
             // Настройка Ratings
             modelBuilder.Entity<Rating>()
                 .HasOne(r => r.ProccesedData)
                 .WithOne(pr => pr.Rating)
-                .HasForeignKey<ProccesedData>(pr => pr.RatingId);
+                .HasForeignKey<ProcessedData>(pr => pr.RatingId);
 
 
             // Настройка RefreshTokens

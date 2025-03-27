@@ -30,7 +30,7 @@ builder.Services.AddSwaggerGen(options =>
 
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    options.OperationFilter<RefreshTokenOperationFilter>();
+    options.IncludeXmlComments(xmlPath);
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -113,6 +113,7 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IRedisService, RedisService>();
 builder.Services.AddScoped<IPasswordService, PaaswordService>();
+builder.Services.AddHostedService<RevokedTokenCleanupService>();
 
 // Repositories
 builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();

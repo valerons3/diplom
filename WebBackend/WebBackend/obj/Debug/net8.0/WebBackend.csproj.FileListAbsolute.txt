@@ -144,3 +144,5 @@ D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Microsoft.Identi
 D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\WebBackend.xml
+D:\Visual Project\Diplom\WebBackend\WebBackend\obj\Debug\net8.0\WebBackend.xml
