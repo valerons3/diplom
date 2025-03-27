@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Visual Project\\Diplom\\WebBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\revokedtokencleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -166,17 +166,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "WebBackend\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\AuthController.cs",
               "RelativeToolTip": "WebBackend\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAOMAAAAAAAAAAAArwOsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAjwOsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T13:35:08.018Z",
               "IsPinned": true,
@@ -193,21 +193,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-27T11:31:37.974Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RevokedTokenCleanupService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RevokedTokenCleanupService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\RevokedTokenCleanupService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RevokedTokenCleanupService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\RevokedTokenCleanupService.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAIwBQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T11:57:38.401Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -219,8 +205,7 @@
               "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IRoleRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T11:12:40.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T11:12:40.358Z"
             },
             {
               "$type": "Document",
@@ -232,8 +217,7 @@
               "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IRedisService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T10:30:39.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T10:30:39.046Z"
             },
             {
               "$type": "Document",
@@ -245,12 +229,11 @@
               "RelativeToolTip": "WebBackend\\Program.cs",
               "ViewState": "AgIAAGYAAAAAAAAAAAAYwHMAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T17:16:19.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T17:16:19.178Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\appsettings.json",
               "RelativeDocumentMoniker": "WebBackend\\appsettings.json",
@@ -263,6 +246,18 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RevokedTokenCleanupService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RevokedTokenCleanupService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\RevokedTokenCleanupService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RevokedTokenCleanupService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\RevokedTokenCleanupService.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwBQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T11:57:38.401Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 9,
               "Title": "IPasswordService.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IPasswordService.cs",
@@ -271,8 +266,7 @@
               "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IPasswordService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T11:08:44.118Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T11:08:44.118Z"
             },
             {
               "$type": "Document",
@@ -284,8 +278,7 @@
               "RelativeToolTip": "WebBackend\\Services\\RedisService.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAQwDEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T10:34:11.229Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T10:34:11.229Z"
             },
             {
               "$type": "Document",
@@ -297,8 +290,7 @@
               "RelativeToolTip": "WebBackend\\Models\\Entity\\RevokedToken.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:06:43.071Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T01:06:43.071Z"
             },
             {
               "$type": "Document",
@@ -310,8 +302,7 @@
               "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IEmailService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T10:19:32.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T10:19:32.579Z"
             },
             {
               "$type": "Document",
@@ -323,8 +314,7 @@
               "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T08:34:06.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T08:34:06.782Z"
             },
             {
               "$type": "Document",
@@ -336,8 +326,7 @@
               "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IRevokedTokenRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T13:55:27.508Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T13:55:27.508Z"
             },
             {
               "$type": "Document",
@@ -349,8 +338,7 @@
               "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T08:34:28.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T08:34:28.314Z"
             },
             {
               "$type": "Document",
@@ -362,8 +350,7 @@
               "RelativeToolTip": "WebBackend\\Models\\DTO\\StoredUserData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T11:30:53.667Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T11:30:53.667Z"
             },
             {
               "$type": "Document",
@@ -375,8 +362,7 @@
               "RelativeToolTip": "WebBackend\\Data\\AppDbContext.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAIwCkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:12:13.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T01:12:13.803Z"
             },
             {
               "$type": "Document",
@@ -388,8 +374,7 @@
               "RelativeToolTip": "WebBackend\\Models\\Entity\\ProcessedData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T11:20:04.024Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T11:20:04.024Z"
             },
             {
               "$type": "Document",
@@ -401,8 +386,7 @@
               "RelativeToolTip": "WebBackend\\Models\\Enums\\ProcessStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T11:27:45.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T11:27:45.982Z"
             },
             {
               "$type": "Document",
@@ -414,8 +398,7 @@
               "RelativeToolTip": "WebBackend\\Models\\Entity\\User.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAxwAwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T12:34:14.654Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T12:34:14.654Z"
             },
             {
               "$type": "Document",
@@ -427,21 +410,19 @@
               "RelativeToolTip": "WebBackend\\Models\\Entity\\Rating.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:08:16.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T01:08:16.445Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 22,
-              "Title": "WebBackend",
+              "Title": "WebBackend.csproj",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\WebBackend.csproj",
               "RelativeDocumentMoniker": "WebBackend\\WebBackend.csproj",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\WebBackend.csproj",
               "RelativeToolTip": "WebBackend\\WebBackend.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-27T08:36:19.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T08:36:19.219Z"
             },
             {
               "$type": "Document",
@@ -453,8 +434,7 @@
               "RelativeToolTip": "WebBackend\\Models\\Entity\\RefreshToken.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:06:43.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T01:06:43.039Z"
             },
             {
               "$type": "Document",
@@ -466,8 +446,7 @@
               "RelativeToolTip": "WebBackend\\Models\\Entity\\Statistic.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:09:31.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T01:09:31.132Z"
             },
             {
               "$type": "Document",
