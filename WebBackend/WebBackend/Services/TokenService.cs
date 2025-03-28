@@ -22,6 +22,32 @@ namespace WebBackend.Services
             this.context = context;
         }
 
+        public JWTPayload? GetJWTPayload(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            if (!tokenHandler.CanReadToken(token))
+            {
+                return null; 
+            }
+
+            var jwtToken = tokenHandler.ReadJwtToken(token);
+
+            var idClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
+            var roleClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+            if (idClaim == null || roleClaim == null)
+            {
+                return null; 
+            }
+
+            return new JWTPayload
+            {
+                Id = Guid.Parse(idClaim),
+                Role = roleClaim
+            };
+        }
+
         public string GenerateCode()
         {
             byte[] bytes = new byte[4]; 
@@ -34,10 +60,6 @@ namespace WebBackend.Services
         {
             var role = context.Roles.FirstOrDefault(r => r.Id == user.RoleId);
 
-            if (role == null)
-            {
-                throw new Exception("Роль пользователя не найдена!");
-            }
 
             var claims = new[]
             {

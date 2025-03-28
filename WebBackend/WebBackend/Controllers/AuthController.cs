@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,6 +14,7 @@ namespace WebBackend.Controllers
 {
     [Route("api/auth")]
     [ApiController]
+    [Authorize]
     public class AuthController : ControllerBase
     {
         private readonly IRedisService redisService;
@@ -23,11 +25,10 @@ namespace WebBackend.Controllers
         private readonly IPasswordService passwordService;
         private readonly IRoleRepository roleRepository;
         private readonly IRevokedTokenRepository revokedTokenRepository;
-        private readonly AppDbContext context;
         public AuthController(IRedisService redisService, ITokenService tokenService, IEmailService emailService,
             IRefreshTokenRepository refreshTokenRepository, IUserRepository userRepository,
             IPasswordService passwordService, IRoleRepository roleRepository,
-            IRevokedTokenRepository revokedTokenRepository, AppDbContext context)
+            IRevokedTokenRepository revokedTokenRepository)
         {
             this.redisService = redisService;
             this.tokenService = tokenService;
@@ -37,7 +38,6 @@ namespace WebBackend.Controllers
             this.passwordService = passwordService;
             this.roleRepository = roleRepository;
             this.revokedTokenRepository = revokedTokenRepository;
-            this.context = context;
         }
 
         [HttpPost("refresh-jwt")]
@@ -54,22 +54,8 @@ namespace WebBackend.Controllers
                 return BadRequest(new { message = "Нужно передать Refresh и JWT токены" });
             }
 
-            Guid userId;
-            try
-            {
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var securityToken = tokenHandler.ReadJwtToken(jwtToken);
-                var userIdClaim = securityToken.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
-
-                if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out userId))
-                {
-                    return Unauthorized(new { message = "Неверный формат ID в токене" });
-                }
-            }
-            catch
-            {
-                return Unauthorized(new { message = "Невалидный JWT токен" });
-            }
+            JWTPayload? payload = tokenService.GetJWTPayload(jwtToken);
+            if (payload == null) { return BadRequest(new { message = "Не валидный JWT токен" }); }
 
 
             RefreshToken? token = await refreshTokenRepository.GetRefreshTokenAsync(refreshToken);
@@ -86,7 +72,7 @@ namespace WebBackend.Controllers
                 return Unauthorized(new { message = "Срок действия токена истёк" });
             }
 
-            User? user = await userRepository.GetEntityUserByIdAsync(userId);
+            User? user = await userRepository.GetEntityUserByIdAsync(payload.Id);
             if (user == null)
             {
                 return NotFound(new { message = "Пользователь не найден" });
@@ -97,6 +83,7 @@ namespace WebBackend.Controllers
         }
 
         [HttpPost("login")]
+        [AllowAnonymous]
         public async Task<IActionResult> LoginUserAsync([FromBody]Login loginData)
         {
             User? user = await userRepository.GetEntityUserByEmailAsync(loginData.Email);
@@ -143,31 +130,16 @@ namespace WebBackend.Controllers
                             .FirstOrDefault()?
                             .Replace("Bearer ", "", StringComparison.OrdinalIgnoreCase)
                             .Trim();
-            Console.WriteLine(jwtToken);
 
             if (jwtToken == null)
             {
                 return BadRequest(new { message = "Нужно передать JWT токен" });
             }
 
-            Guid userId;
-            try
-            {
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var securityToken = tokenHandler.ReadJwtToken(jwtToken);
-                var userIdClaim = securityToken.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
+            JWTPayload? payload = tokenService.GetJWTPayload(jwtToken);
+            if (payload == null) { return BadRequest(new { message = "Не валидный JWT токен" }); }
 
-                if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out userId))
-                {
-                    return Unauthorized(new { message = "Неверный формат ID в токене" });
-                }
-            }
-            catch
-            {
-                return Unauthorized(new { message = "Невалидный JWT токен" });
-            }
-
-            User? user = await userRepository.GetEntityUserByIdAsync(userId);
+            User? user = await userRepository.GetEntityUserByIdAsync(payload.Id);
             if (user == null) { return BadRequest(new { message = "Пользователь не найден" }); }
 
             var resultDeleteRefresh = await refreshTokenRepository.DeleteRefreshTokenAsync(user.UserRefreshToken);
@@ -189,6 +161,7 @@ namespace WebBackend.Controllers
 
 
         [HttpPost("confirm-code")]
+        [AllowAnonymous]
         public async Task<IActionResult> ConfirmCodeAsync([FromBody]ConfirmCode confirmData)
         {
             EmailVerificationStatus status = await redisService.CheckEmailCodeAsync(confirmData.Token, confirmData.Code);
@@ -235,6 +208,7 @@ namespace WebBackend.Controllers
         }
 
         [HttpPost("register")]
+        [AllowAnonymous]
         public async Task<IActionResult> RegisterUserAsync(UserDTO userDTO)
         {
 

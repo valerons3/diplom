@@ -28,6 +28,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1"
     });
 
+
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     options.IncludeXmlComments(xmlPath);
@@ -113,6 +114,8 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IRedisService, RedisService>();
 builder.Services.AddScoped<IPasswordService, PaaswordService>();
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IProcessedDataRepository, ProcessedDataRepository>();
 builder.Services.AddHostedService<RevokedTokenCleanupService>();
 
 // Repositories
@@ -129,6 +132,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+if (!Directory.Exists(uploadPath))
+{
+    Directory.CreateDirectory(uploadPath);
 }
 
 app.UseHttpsRedirection();
