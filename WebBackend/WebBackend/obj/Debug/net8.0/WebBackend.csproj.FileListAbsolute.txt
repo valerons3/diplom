@@ -146,3 +146,6 @@ D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\System.IdentityM
 D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\WebBackend.xml
 D:\Visual Project\Diplom\WebBackend\WebBackend\obj\Debug\net8.0\WebBackend.xml
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Visual Project\Diplom\WebBackend\WebBackend\bin\Debug\net8.0\RabbitMQ.Client.dll

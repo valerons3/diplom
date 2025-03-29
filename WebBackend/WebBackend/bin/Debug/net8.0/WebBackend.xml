@@ -64,5 +64,29 @@
         <member name="M:WebBackend.Migrations.ChangeStatusColumnProcessData.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:WebBackend.Migrations.ChangeTimeSpanColumnInProcessedDataTable">
+            <inheritdoc />
+        </member>
+        <member name="M:WebBackend.Migrations.ChangeTimeSpanColumnInProcessedDataTable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebBackend.Migrations.ChangeTimeSpanColumnInProcessedDataTable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebBackend.Migrations.ChangeTimeSpanColumnInProcessedDataTable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WebBackend.Migrations.Update">
+            <inheritdoc />
+        </member>
+        <member name="M:WebBackend.Migrations.Update.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebBackend.Migrations.Update.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebBackend.Migrations.Update.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

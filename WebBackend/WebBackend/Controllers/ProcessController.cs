@@ -18,13 +18,15 @@ namespace WebBackend.Controllers
         private readonly IFileService fileService;
         private readonly ITokenService tokenService;
         private readonly IProcessedDataRepository processedDataRepository;
+        private readonly IRabbitService rabbitService;
         private readonly string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
         public ProcessController(IFileService fileService, ITokenService tokenService,
-            IProcessedDataRepository processedDataRepository)
+            IProcessedDataRepository processedDataRepository, IRabbitService rabbitService)
         {
             this.fileService = fileService;
             this.tokenService = tokenService;
             this.processedDataRepository = processedDataRepository;
+            this.rabbitService = rabbitService;
         }
 
         [HttpPost("upload")]
@@ -73,9 +75,21 @@ namespace WebBackend.Controllers
                 return StatusCode(500,
                 new { message = "Ошибка при сохранении данных" }); }
 
-            return Ok(new { message = "Файл сохранён" });
-        }
+            RabbitData rabbitData = new RabbitData()
+            {
+                UserID = payload.Id,
+                ProcessID = processData.Id,
+                ProcessingTime = null,
+                DownloadLink = "залупа"
+            };
+            var publishResult = await rabbitService.PublishAsync(rabbitData);
+            if (!publishResult.Success)
+            {
+                return StatusCode(500, new { message = publishResult.Message });
+            }
 
+            return Ok(new { message = "Данные отправлены на обработку" });
+        }
     }
 
 }

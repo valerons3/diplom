@@ -3,7 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15
-    container_name: my_postgres
+    container_name: postgres
     restart: always
     environment:
       POSTGRES_DB: diplom
@@ -16,7 +16,7 @@ services:
 
   redis:
     image: redis:7
-    container_name: my_redis
+    container_name: redis
     restart: always
     ports:
       - "6379:6379"
@@ -24,6 +24,20 @@ services:
       - redis_data:/data
     command: ["redis-server", "--appendonly", "yes"]
 
+  rabbitmq:
+    image: "rabbitmq:management"
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672" 
+      - "15672:15672" 
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password   
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
 volumes:
   postgres_data:
   redis_data:
+  rabbitmq_data:

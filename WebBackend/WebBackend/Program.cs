@@ -109,6 +109,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect(builder.Configuration.GetSection("Redis")["ConnectionString"]));
 
+// RabbitMQ
+builder.Services.Configure<RabbitmqSettings>(builder.Configuration.GetSection("RabbitMQ"));
+
 // Services
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
@@ -116,6 +119,7 @@ builder.Services.AddScoped<IRedisService, RedisService>();
 builder.Services.AddScoped<IPasswordService, PaaswordService>();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IProcessedDataRepository, ProcessedDataRepository>();
+builder.Services.AddSingleton<IRabbitService, RabbitService>();
 builder.Services.AddHostedService<RevokedTokenCleanupService>();
 
 // Repositories
@@ -133,6 +137,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.Use(async (context, next) =>
+{
+    context.Response.Headers["Cache-Control"] = "no-store";
+    await next();
+});
 
 string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
 if (!Directory.Exists(uploadPath))
