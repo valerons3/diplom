@@ -68,6 +68,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebBackend.Controllers.FileShareController",
+    "Method": "GetFileAsync",
+    "RelativePath": "api/fileshare/upload",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userID",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "processID",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebBackend.Controllers.ProcessController",
     "Method": "UploadFile",
     "RelativePath": "api/process/upload",

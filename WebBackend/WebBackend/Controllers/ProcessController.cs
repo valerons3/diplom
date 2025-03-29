@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System.IdentityModel.Tokens.Jwt;
 using WebBackend.Models.DTO;
 using WebBackend.Models.Entity;
@@ -19,14 +20,17 @@ namespace WebBackend.Controllers
         private readonly ITokenService tokenService;
         private readonly IProcessedDataRepository processedDataRepository;
         private readonly IRabbitService rabbitService;
+        private readonly DownloadURL downloadURL; 
         private readonly string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
         public ProcessController(IFileService fileService, ITokenService tokenService,
-            IProcessedDataRepository processedDataRepository, IRabbitService rabbitService)
+            IProcessedDataRepository processedDataRepository, IRabbitService rabbitService, 
+            IOptions<DownloadURL> downloadURL)
         {
             this.fileService = fileService;
             this.tokenService = tokenService;
             this.processedDataRepository = processedDataRepository;
             this.rabbitService = rabbitService;
+            this.downloadURL = downloadURL.Value;
         }
 
         [HttpPost("upload")]
@@ -75,12 +79,15 @@ namespace WebBackend.Controllers
                 return StatusCode(500,
                 new { message = "Ошибка при сохранении данных" }); }
 
+
+            string downloadLink = $"{downloadURL.BaseUrl}userID={payload.Id}&processID={processData.Id}&fileName={file.FileName}";
+            Console.WriteLine(downloadLink);
             RabbitData rabbitData = new RabbitData()
             {
                 UserID = payload.Id,
                 ProcessID = processData.Id,
                 ProcessingTime = null,
-                DownloadLink = "залупа"
+                DownloadLink = $"{downloadURL.BaseUrl}userID={payload.Id}&processID={processData.Id}&fileName={file.FileName}"
             };
             var publishResult = await rabbitService.PublishAsync(rabbitData);
             if (!publishResult.Success)

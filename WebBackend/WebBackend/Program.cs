@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using WebBackend.Configurations;
 using WebBackend.Data;
+using WebBackend.Models.DTO;
 using WebBackend.Repositories;
 using WebBackend.Repositories.Interfaces;
 using WebBackend.Services;
@@ -111,6 +112,9 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(
 
 // RabbitMQ
 builder.Services.Configure<RabbitmqSettings>(builder.Configuration.GetSection("RabbitMQ"));
+
+// FileShare
+builder.Services.Configure<DownloadURL>(builder.Configuration.GetSection("FileShare"));
 
 // Services
 builder.Services.AddScoped<ITokenService, TokenService>();
