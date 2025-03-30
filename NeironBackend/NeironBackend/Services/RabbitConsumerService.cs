@@ -106,6 +106,7 @@ namespace NeironBackend.Services
                     UserID = rabbitData.UserID,
                     ProcessID = rabbitData.ProcessID,
                     ProcessingTime = TimeSpan.FromSeconds(5),
+                    Status = ProcessStatus.Success,
                     DownloadLink = $"{settingsURL.BaseUrl}userID={rabbitData.UserID}&processID={rabbitData.ProcessID}&fileName={fileName}"
                 };
                 var resultPublish = producer.Publish(rabbitData1);

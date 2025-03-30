@@ -20,7 +20,7 @@ namespace WebBackend.Repositories
             try
             {
                 var existingProcessData = await context.ProccesedDatas.FirstOrDefaultAsync(pd => pd.Id == processId);
-                if (existingProcessData != null)
+                if (existingProcessData == null)
                 {
                     return (false, "Ошибка нахождения данных");
                 }
