@@ -1,4 +1,4 @@
-﻿namespace WebBackend.Models.DTO
+﻿namespace WebBackend.Configurations
 {
     public class DownloadURL
     {

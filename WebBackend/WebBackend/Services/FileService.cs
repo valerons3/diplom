@@ -38,9 +38,5 @@ namespace WebBackend.Services
             }
         }
 
-        public Task<(bool Success, string? Message)> SaveResultFileAsync(Guid userId, Guid processId, IFormFile file)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

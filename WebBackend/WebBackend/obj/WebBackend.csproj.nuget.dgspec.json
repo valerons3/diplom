@@ -82,7 +82,7 @@
             },
             "RabbitMQ.Client": {
               "target": "Package",
-              "version": "[7.1.2, )"
+              "version": "[6.8.1, )"
             },
             "StackExchange.Redis": {
               "target": "Package",

@@ -1,6 +1,4 @@
-﻿using WebBackend.Models.Enums;
-
-namespace WebBackend.Models.DTO
+﻿namespace NeironBackend.Models
 {
     public class RabbitData
     {
@@ -9,5 +7,12 @@ namespace WebBackend.Models.DTO
         public TimeSpan? ProcessingTime { get; set; } = null;
         public ProcessStatus Status { get; set; } = ProcessStatus.Processing;
         public string DownloadLink { get; set; }
+    }
+
+    public enum ProcessStatus
+    {
+        Processing, // В обработке
+        Success,    // Успешно обработано
+        Failed      // Ошибка
     }
 }

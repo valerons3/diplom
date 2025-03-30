@@ -1,0 +1,6 @@
+@NeironBackend_HostAddress = http://localhost:5268
+
+GET {{NeironBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

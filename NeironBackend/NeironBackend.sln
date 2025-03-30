@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeironBackend", "NeironBackend\NeironBackend.csproj", "{01A2FA6B-C96F-468B-BF3F-97DEC0846945}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01A2FA6B-C96F-468B-BF3F-97DEC0846945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A2FA6B-C96F-468B-BF3F-97DEC0846945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A2FA6B-C96F-468B-BF3F-97DEC0846945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A2FA6B-C96F-468B-BF3F-97DEC0846945}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9D8FC6F-F3A3-4C03-82FD-D4C707DF51EC}
+	EndGlobalSection
+EndGlobal

@@ -1,5 +1,7 @@
-﻿using WebBackend.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using WebBackend.Data;
 using WebBackend.Models.Entity;
+using WebBackend.Models.Enums;
 using WebBackend.Repositories.Interfaces;
 
 namespace WebBackend.Repositories
@@ -10,6 +12,36 @@ namespace WebBackend.Repositories
         public ProcessedDataRepository(AppDbContext context)
         {
             this.context = context;
+        }
+
+        public async Task<(bool Sucess, string? message)> ChangeProcessDataAsync(ProcessStatus status, string resultData, 
+            TimeSpan? processingTime, Guid processId)
+        {
+            try
+            {
+                var existingProcessData = await context.ProccesedDatas.FirstOrDefaultAsync(pd => pd.Id == processId);
+                if (existingProcessData != null)
+                {
+                    return (false, "Ошибка нахождения данных");
+                }
+
+                existingProcessData.Status = status;
+                existingProcessData.ResultData = resultData;
+                existingProcessData.ProcessingTime = processingTime;
+                if (status == ProcessStatus.Failed)
+                {
+                    existingProcessData.CommentResult = "Ошибка при обработке данных";
+                }
+
+                context.ProccesedDatas.Update(existingProcessData);
+                await context.SaveChangesAsync();
+
+                return (true, "Данные обновлены");
+            }
+            catch (Exception ex)
+            {
+                return (false, $"Произошлая ошибка");
+            }
         }
         public async Task<(bool Sucess, string? message)> PostProcessDataAsync(ProcessedData processedData)
         {

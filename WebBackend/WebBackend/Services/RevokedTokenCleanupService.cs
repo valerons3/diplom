@@ -12,7 +12,7 @@ public class RevokedTokenCleanupService : BackgroundService
     private readonly IServiceScopeFactory scopeFactory;
     private readonly TimeSpan interval = TimeSpan.FromHours(6); // Интервал очистки
 
-    public RevokedTokenCleanupService(IServiceScopeFactory scopeFactory, ILogger<RevokedTokenCleanupService> logger)
+    public RevokedTokenCleanupService(IServiceScopeFactory scopeFactory)
     {
         this.scopeFactory = scopeFactory;
     }

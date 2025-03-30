@@ -7,7 +7,6 @@ using System.Reflection;
 using System.Text;
 using WebBackend.Configurations;
 using WebBackend.Data;
-using WebBackend.Models.DTO;
 using WebBackend.Repositories;
 using WebBackend.Repositories.Interfaces;
 using WebBackend.Services;
@@ -123,8 +122,9 @@ builder.Services.AddScoped<IRedisService, RedisService>();
 builder.Services.AddScoped<IPasswordService, PaaswordService>();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IProcessedDataRepository, ProcessedDataRepository>();
-builder.Services.AddSingleton<IRabbitService, RabbitService>();
+builder.Services.AddSingleton<IRabbitProducerService, RabbitProducerService>();
 builder.Services.AddHostedService<RevokedTokenCleanupService>();
+builder.Services.AddHostedService<RabbitConsumerService>();
 
 // Repositories
 builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();

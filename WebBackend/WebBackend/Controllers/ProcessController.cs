@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.IdentityModel.Tokens.Jwt;
+using WebBackend.Configurations;
 using WebBackend.Models.DTO;
 using WebBackend.Models.Entity;
 using WebBackend.Models.Enums;
@@ -19,11 +20,11 @@ namespace WebBackend.Controllers
         private readonly IFileService fileService;
         private readonly ITokenService tokenService;
         private readonly IProcessedDataRepository processedDataRepository;
-        private readonly IRabbitService rabbitService;
+        private readonly IRabbitProducerService rabbitService;
         private readonly DownloadURL downloadURL; 
         private readonly string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
         public ProcessController(IFileService fileService, ITokenService tokenService,
-            IProcessedDataRepository processedDataRepository, IRabbitService rabbitService, 
+            IProcessedDataRepository processedDataRepository, IRabbitProducerService rabbitService, 
             IOptions<DownloadURL> downloadURL)
         {
             this.fileService = fileService;
@@ -89,7 +90,7 @@ namespace WebBackend.Controllers
                 ProcessingTime = null,
                 DownloadLink = $"{downloadURL.BaseUrl}userID={payload.Id}&processID={processData.Id}&fileName={file.FileName}"
             };
-            var publishResult = await rabbitService.PublishAsync(rabbitData);
+            var publishResult = rabbitService.Publish(rabbitData);
             if (!publishResult.Success)
             {
                 return StatusCode(500, new { message = publishResult.Message });

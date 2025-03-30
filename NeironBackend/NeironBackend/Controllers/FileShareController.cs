@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebBackend.Services.Interfaces;
+using NeironBackend.Services.Interfaces;
 
-namespace WebBackend.Controllers
+namespace NeironBackend.Controllers
 {
     [Route("api/fileshare")]
     [ApiController]
@@ -18,11 +18,21 @@ namespace WebBackend.Controllers
         [HttpGet("upload")]
         [AllowAnonymous]
         public async Task<IActionResult> GetFileAsync([FromQuery] string userID, [FromQuery] string processID,
-            [FromQuery] string fileName)
+        [FromQuery] string fileName)
         {
             var resultShare = await fileService.UploadFile(userID, processID, fileName);
-            if (!resultShare.Success) { return NotFound(new { message = resultShare.Message }); }
-            return File(resultShare.fileBytes, "application/octet-stream", fileName);
+            if (!resultShare.Success)
+            {
+                return NotFound(new { message = resultShare.Message });
+            }
+
+            var fileBytes = resultShare.fileBytes;
+
+            var fileResult = File(fileBytes, "application/octet-stream", fileName);
+
+            _ = Task.Run(async () => await fileService.DeleteUserFolderAsync(userID));
+
+            return fileResult;
         }
     }
 }
