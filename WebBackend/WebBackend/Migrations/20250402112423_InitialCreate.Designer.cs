@@ -12,8 +12,8 @@ using WebBackend.Data;
 namespace WebBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250328161719_ChangeTimeSpanColumnInProcessedDataTable")]
-    partial class ChangeTimeSpanColumnInProcessedDataTable
+    [Migration("20250402112423_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,10 @@ namespace WebBackend.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("InputData")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProcessMethod")
                         .IsRequired()
                         .HasColumnType("text");
 

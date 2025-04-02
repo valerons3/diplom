@@ -38,6 +38,10 @@ namespace WebBackend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("ProcessMethod")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<TimeSpan?>("ProcessingTime")
                         .HasColumnType("interval");
 

@@ -34,7 +34,7 @@ namespace WebBackend.Services
             }
             catch (Exception ex)
             {
-                return (false, "Ошибка при сохранении файла");
+                return (false, ex.Message);
             }
         }
 

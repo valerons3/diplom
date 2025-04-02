@@ -3,88 +3,60 @@
   "WorkspaceRootPath": "D:\\Visual Project\\Diplom\\WebBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\processeddatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\processeddatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\controllers\\filesharecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\controllers\\filesharecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\rabbitconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\rabbitconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\controllers\\processcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\controllers\\processcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\interfaces\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\interfaces\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\migrations\\20250402112423_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\migrations\\20250402112423_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\configurations\\downloadurl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\configurations\\downloadurl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\enums\\processstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\enums\\processstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\dto\\rabbitdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\dto\\rabbitdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\rabbitproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\rabbitproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\interfaces\\irabbitproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\interfaces\\irabbitproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\interfaces\\iprocesseddatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\interfaces\\iprocesseddatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\rabbitconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\rabbitconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\processeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\processeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\configurations\\rabbitmqsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\configurations\\rabbitmqsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\interfaces\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\interfaces\\ifileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\configurations\\redissettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\configurations\\redissettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\processeddatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\processeddatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\revokedtokencleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\revokedtokencleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\rabbitproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\rabbitproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\redisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\redisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,80 +67,40 @@
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\dto\\jwtpayload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\dto\\jwtpayload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\revokedtokencleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\revokedtokencleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\redisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\redisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\paaswordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\paaswordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\interfaces\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\interfaces\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\revokedtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\revokedtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\interfaces\\iredisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\interfaces\\iredisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\interfaces\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\interfaces\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\enums\\emailverificationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\enums\\emailverificationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\interfaces\\irabbitproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\interfaces\\irabbitproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\interfaces\\ipasswordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\interfaces\\ipasswordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\interfaces\\irevokedtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\interfaces\\irevokedtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\interfaces\\irefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\interfaces\\irefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\dto\\storeduserdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\dto\\storeduserdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\statistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\statistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\webbackend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\webbackend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\swager\\refreshtokenoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\swager\\refreshtokenoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\dto\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\dto\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\revokedtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -179,32 +111,108 @@
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\refreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\services\\paaswordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\services\\paaswordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\interfaces\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\interfaces\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\interfaces\\irevokedtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\interfaces\\irevokedtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\interfaces\\irefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\interfaces\\irefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\repositories\\interfaces\\iprocesseddatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\repositories\\interfaces\\iprocesseddatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\enums\\processstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\enums\\processstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\enums\\emailverificationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\enums\\emailverificationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\statistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\statistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\revokedtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\revokedtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\entity\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\entity\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\dto\\storeduserdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\dto\\storeduserdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\dto\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\dto\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\dto\\jwtpayload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\dto\\jwtpayload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\models\\dto\\confirmcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\models\\dto\\confirmcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\controllers\\filesharecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\controllers\\filesharecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\configurations\\smtpsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\configurations\\smtpsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\configurations\\redissettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\configurations\\redissettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\configurations\\rabbitmqsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\configurations\\rabbitmqsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\configurations\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\configurations\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\configurations\\downloadurl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\configurations\\downloadurl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\webbackend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\webbackend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|d:\\visual project\\diplom\\webbackend\\webbackend\\swager\\refreshtokenoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B79F9DEF-2B43-45C8-B6C3-091F0E3C351D}|WebBackend\\WebBackend.csproj|solutionrelative:webbackend\\swager\\refreshtokenoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -214,96 +222,127 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProcessController.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\ProcessController.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Controllers\\ProcessController.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\ProcessController.cs",
-              "RelativeToolTip": "WebBackend\\Controllers\\ProcessController.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAYwFoAAABtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T07:07:58.916Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
               "Title": "RabbitData.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\RabbitData.cs",
               "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\RabbitData.cs",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\RabbitData.cs",
               "RelativeToolTip": "WebBackend\\Models\\DTO\\RabbitData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-29T13:17:29.723Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FileService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\FileService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\FileService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\FileService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\FileService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T11:42:45.246Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\appsettings.json",
-              "RelativeDocumentMoniker": "WebBackend\\appsettings.json",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\appsettings.json",
-              "RelativeToolTip": "WebBackend\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-25T02:41:45.732Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "RabbitConsumerService.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RabbitConsumerService.cs",
               "RelativeDocumentMoniker": "WebBackend\\Services\\RabbitConsumerService.cs",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RabbitConsumerService.cs",
               "RelativeToolTip": "WebBackend\\Services\\RabbitConsumerService.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAgwGAAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAAEsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T09:07:19.087Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Program.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Program.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Program.cs",
-              "RelativeToolTip": "WebBackend\\Program.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAASwHwAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T17:16:19.178Z",
+              "WhenOpened": "2025-03-30T09:07:19.087Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "ProcessedDataRepository.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\ProcessedDataRepository.cs",
               "RelativeDocumentMoniker": "WebBackend\\Repositories\\ProcessedDataRepository.cs",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\ProcessedDataRepository.cs",
               "RelativeToolTip": "WebBackend\\Repositories\\ProcessedDataRepository.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAwBYAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-28T13:33:29.22Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\EmailService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\EmailService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\EmailService.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwBIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T10:20:56.663Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProcessController.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\ProcessController.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Controllers\\ProcessController.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\ProcessController.cs",
+              "RelativeToolTip": "WebBackend\\Controllers\\ProcessController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAwFQAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T07:07:58.916Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20250402112423_InitialCreate.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Migrations\\20250402112423_InitialCreate.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Migrations\\20250402112423_InitialCreate.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Migrations\\20250402112423_InitialCreate.cs",
+              "RelativeToolTip": "WebBackend\\Migrations\\20250402112423_InitialCreate.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T11:26:01.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "WebBackend\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAADwvykAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T01:12:13.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProcessedData.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\ProcessedData.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\ProcessedData.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\ProcessedData.cs",
+              "RelativeToolTip": "WebBackend\\Models\\Entity\\ProcessedData.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T11:20:04.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FileService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\FileService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\FileService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\FileService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\FileService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T11:42:45.246Z",
               "EditorCaption": ""
             },
             {
@@ -314,445 +353,112 @@
               "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\IFileService.cs",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IFileService.cs",
               "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IFileService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T11:23:25.991Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FileShareController.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\FileShareController.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Controllers\\FileShareController.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\FileShareController.cs",
-              "RelativeToolTip": "WebBackend\\Controllers\\FileShareController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T15:32:00.52Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DownloadURL.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\DownloadURL.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Configurations\\DownloadURL.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\DownloadURL.cs",
-              "RelativeToolTip": "WebBackend\\Configurations\\DownloadURL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T15:36:32.591Z"
+              "WhenOpened": "2025-03-31T13:06:11.275Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ProcessStatus.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Enums\\ProcessStatus.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\Enums\\ProcessStatus.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Enums\\ProcessStatus.cs",
-              "RelativeToolTip": "WebBackend\\Models\\Enums\\ProcessStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T11:27:45.982Z"
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\appsettings.json",
+              "RelativeDocumentMoniker": "WebBackend\\appsettings.json",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\appsettings.json",
+              "RelativeToolTip": "WebBackend\\appsettings.json",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAiwBgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-25T02:41:45.732Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "RabbitProducerService.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RabbitProducerService.cs",
               "RelativeDocumentMoniker": "WebBackend\\Services\\RabbitProducerService.cs",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RabbitProducerService.cs",
               "RelativeToolTip": "WebBackend\\Services\\RabbitProducerService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwB4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAYwDIAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T13:18:53.884Z"
+              "WhenOpened": "2025-03-29T13:18:53.884Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IRabbitProducerService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IRabbitProducerService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\IRabbitProducerService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IRabbitProducerService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IRabbitProducerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Program.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Program.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Program.cs",
+              "RelativeToolTip": "WebBackend\\Program.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAASwKQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T13:17:51.788Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IProcessedDataRepository.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IProcessedDataRepository.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Repositories\\Interfaces\\IProcessedDataRepository.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IProcessedDataRepository.cs",
-              "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IProcessedDataRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T13:31:41.556Z"
+              "WhenOpened": "2025-03-19T17:16:19.178Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "ProcessedData.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\ProcessedData.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\ProcessedData.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\ProcessedData.cs",
-              "RelativeToolTip": "WebBackend\\Models\\Entity\\ProcessedData.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T11:20:04.024Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "WebBackend\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAkwFkAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T08:45:18.158Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "RabbitmqSettings.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\RabbitmqSettings.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Configurations\\RabbitmqSettings.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\RabbitmqSettings.cs",
-              "RelativeToolTip": "WebBackend\\Configurations\\RabbitmqSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T13:11:16.395Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "RedisSettings.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\RedisSettings.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Configurations\\RedisSettings.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\RedisSettings.cs",
-              "RelativeToolTip": "WebBackend\\Configurations\\RedisSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T07:25:49.979Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "RevokedTokenCleanupService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RevokedTokenCleanupService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\RevokedTokenCleanupService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RevokedTokenCleanupService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\RevokedTokenCleanupService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAkAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T11:57:38.401Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "RedisService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RedisService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\RedisService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RedisService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\RedisService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T10:34:11.229Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\EmailService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\EmailService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\EmailService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\EmailService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAsAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T10:20:56.663Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "WebBackend\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\AuthController.cs",
               "RelativeToolTip": "WebBackend\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAPEAAAAAAAAAAAAwwAABAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAMgAAAAAAAAAAAAswAABAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T13:35:08.018Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\TokenService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\TokenService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\TokenService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\TokenService.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAYwB4AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T09:50:09.768Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ITokenService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\ITokenService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\ITokenService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\ITokenService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\Interfaces\\ITokenService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T12:34:47.979Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "JWTPayload.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\JWTPayload.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\JWTPayload.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\JWTPayload.cs",
-              "RelativeToolTip": "WebBackend\\Models\\DTO\\JWTPayload.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-28T13:12:34.879Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "IRedisService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IRedisService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\IRedisService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IRedisService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IRedisService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T10:30:39.046Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "IRoleRepository.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRoleRepository.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Repositories\\Interfaces\\IRoleRepository.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRoleRepository.cs",
-              "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IRoleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T11:12:40.358Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "EmailVerificationStatus.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Enums\\EmailVerificationStatus.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\Enums\\EmailVerificationStatus.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Enums\\EmailVerificationStatus.cs",
-              "RelativeToolTip": "WebBackend\\Models\\Enums\\EmailVerificationStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T11:31:37.974Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "IPasswordService.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IPasswordService.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\IPasswordService.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IPasswordService.cs",
-              "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IPasswordService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T11:08:44.118Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "RevokedToken.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\RevokedToken.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\RevokedToken.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\RevokedToken.cs",
-              "RelativeToolTip": "WebBackend\\Models\\Entity\\RevokedToken.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:06:43.071Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 13,
               "Title": "IEmailService.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IEmailService.cs",
               "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\IEmailService.cs",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IEmailService.cs",
               "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IEmailService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T10:19:32.579Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "IRevokedTokenRepository.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRevokedTokenRepository.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Repositories\\Interfaces\\IRevokedTokenRepository.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRevokedTokenRepository.cs",
-              "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IRevokedTokenRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\TokenService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\TokenService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\TokenService.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAowB4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T13:55:27.508Z"
+              "WhenOpened": "2025-03-25T09:50:09.768Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "IRefreshTokenRepository.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
-              "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABGAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "RevokedTokenCleanupService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RevokedTokenCleanupService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\RevokedTokenCleanupService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RevokedTokenCleanupService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\RevokedTokenCleanupService.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwAkAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T08:34:28.314Z"
+              "WhenOpened": "2025-03-27T11:57:38.401Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "StoredUserData.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\StoredUserData.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\StoredUserData.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\StoredUserData.cs",
-              "RelativeToolTip": "WebBackend\\Models\\DTO\\StoredUserData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA4AAAAAAAAAA==",
+              "DocumentIndex": 17,
+              "Title": "RedisService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RedisService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\RedisService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\RedisService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\RedisService.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAADEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T11:30:53.667Z"
+              "WhenOpened": "2025-03-25T10:34:11.229Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Data\\AppDbContext.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "WebBackend\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAIwCkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:12:13.803Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\User.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\User.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\User.cs",
-              "RelativeToolTip": "WebBackend\\Models\\Entity\\User.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAwAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T12:34:14.654Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Rating.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\Rating.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\Rating.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\Rating.cs",
-              "RelativeToolTip": "WebBackend\\Models\\Entity\\Rating.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:08:16.445Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "WebBackend.csproj",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\WebBackend.csproj",
-              "RelativeDocumentMoniker": "WebBackend\\WebBackend.csproj",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\WebBackend.csproj",
-              "RelativeToolTip": "WebBackend\\WebBackend.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-27T08:36:19.219Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "RefreshToken.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\RefreshToken.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\RefreshToken.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\RefreshToken.cs",
-              "RelativeToolTip": "WebBackend\\Models\\Entity\\RefreshToken.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:06:43.039Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Statistic.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\Statistic.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\Statistic.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\Statistic.cs",
-              "RelativeToolTip": "WebBackend\\Models\\Entity\\Statistic.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:09:31.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "RefreshTokenOperationFilter.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Swager\\RefreshTokenOperationFilter.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Swager\\RefreshTokenOperationFilter.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Swager\\RefreshTokenOperationFilter.cs",
-              "RelativeToolTip": "WebBackend\\Swager\\RefreshTokenOperationFilter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T14:56:06.052Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "Login.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\Login.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\Login.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\Login.cs",
-              "RelativeToolTip": "WebBackend\\Models\\DTO\\Login.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T13:58:26.337Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "RevokedTokenRepository.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\RevokedTokenRepository.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Repositories\\RevokedTokenRepository.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\RevokedTokenRepository.cs",
-              "RelativeToolTip": "WebBackend\\Repositories\\RevokedTokenRepository.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAuwBYAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T13:56:47.686Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "RefreshTokenRepository.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\RefreshTokenRepository.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Repositories\\RefreshTokenRepository.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\RefreshTokenRepository.cs",
-              "RelativeToolTip": "WebBackend\\Repositories\\RefreshTokenRepository.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAkwBAAAABdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T08:45:05.416Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 18,
               "Title": "PaaswordService.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\PaaswordService.cs",
               "RelativeDocumentMoniker": "WebBackend\\Services\\PaaswordService.cs",
@@ -764,7 +470,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 19,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\ITokenService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\ITokenService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\ITokenService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\Interfaces\\ITokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T12:34:47.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IRedisService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IRedisService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\IRedisService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IRedisService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IRedisService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T10:30:39.046Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IRabbitProducerService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IRabbitProducerService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\IRabbitProducerService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IRabbitProducerService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IRabbitProducerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T13:17:51.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IPasswordService.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IPasswordService.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Services\\Interfaces\\IPasswordService.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Services\\Interfaces\\IPasswordService.cs",
+              "RelativeToolTip": "WebBackend\\Services\\Interfaces\\IPasswordService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T11:08:44.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "WebBackend\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAkwFkAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T08:45:18.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "RoleRepository.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\RoleRepository.cs",
               "RelativeDocumentMoniker": "WebBackend\\Repositories\\RoleRepository.cs",
@@ -776,7 +542,139 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 25,
+              "Title": "RevokedTokenRepository.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\RevokedTokenRepository.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Repositories\\RevokedTokenRepository.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\RevokedTokenRepository.cs",
+              "RelativeToolTip": "WebBackend\\Repositories\\RevokedTokenRepository.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAABYAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T13:56:47.686Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "RefreshTokenRepository.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\RefreshTokenRepository.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Repositories\\RefreshTokenRepository.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\RefreshTokenRepository.cs",
+              "RelativeToolTip": "WebBackend\\Repositories\\RefreshTokenRepository.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAowBAAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T08:45:05.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Repositories\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T13:05:46.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IRevokedTokenRepository.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRevokedTokenRepository.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Repositories\\Interfaces\\IRevokedTokenRepository.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRevokedTokenRepository.cs",
+              "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IRevokedTokenRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T13:55:27.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "IRoleRepository.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRoleRepository.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Repositories\\Interfaces\\IRoleRepository.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRoleRepository.cs",
+              "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IRoleRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T11:12:40.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IRefreshTokenRepository.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IRefreshTokenRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T08:34:28.314Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IProcessedDataRepository.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IProcessedDataRepository.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Repositories\\Interfaces\\IProcessedDataRepository.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Repositories\\Interfaces\\IProcessedDataRepository.cs",
+              "RelativeToolTip": "WebBackend\\Repositories\\Interfaces\\IProcessedDataRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T13:31:41.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ProcessStatus.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Enums\\ProcessStatus.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\Enums\\ProcessStatus.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Enums\\ProcessStatus.cs",
+              "RelativeToolTip": "WebBackend\\Models\\Enums\\ProcessStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T11:27:45.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "EmailVerificationStatus.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Enums\\EmailVerificationStatus.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\Enums\\EmailVerificationStatus.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Enums\\EmailVerificationStatus.cs",
+              "RelativeToolTip": "WebBackend\\Models\\Enums\\EmailVerificationStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T11:31:37.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\User.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\User.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\User.cs",
+              "RelativeToolTip": "WebBackend\\Models\\Entity\\User.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T12:34:14.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Statistic.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\Statistic.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\Statistic.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\Statistic.cs",
+              "RelativeToolTip": "WebBackend\\Models\\Entity\\Statistic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T01:09:31.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
               "Title": "Role.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\Role.cs",
               "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\Role.cs",
@@ -788,7 +686,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 37,
+              "Title": "RevokedToken.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\RevokedToken.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\RevokedToken.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\RevokedToken.cs",
+              "RelativeToolTip": "WebBackend\\Models\\Entity\\RevokedToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T01:06:43.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\RefreshToken.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\RefreshToken.cs",
+              "RelativeToolTip": "WebBackend\\Models\\Entity\\RefreshToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T01:06:43.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Rating.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\Rating.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\Entity\\Rating.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\Entity\\Rating.cs",
+              "RelativeToolTip": "WebBackend\\Models\\Entity\\Rating.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T01:08:16.445Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\UserDTO.cs",
               "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\UserDTO.cs",
@@ -800,7 +734,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 41,
+              "Title": "StoredUserData.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\StoredUserData.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\StoredUserData.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\StoredUserData.cs",
+              "RelativeToolTip": "WebBackend\\Models\\DTO\\StoredUserData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T11:30:53.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Login.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\Login.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\Login.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\Login.cs",
+              "RelativeToolTip": "WebBackend\\Models\\DTO\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:58:26.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "JWTPayload.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\JWTPayload.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\JWTPayload.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\JWTPayload.cs",
+              "RelativeToolTip": "WebBackend\\Models\\DTO\\JWTPayload.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T13:12:34.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "ConfirmCode.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\ConfirmCode.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\ConfirmCode.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\ConfirmCode.cs",
+              "RelativeToolTip": "WebBackend\\Models\\DTO\\ConfirmCode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:49:11.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "FileShareController.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\FileShareController.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Controllers\\FileShareController.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Controllers\\FileShareController.cs",
+              "RelativeToolTip": "WebBackend\\Controllers\\FileShareController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T15:32:00.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
               "Title": "SmtpSettings.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\SmtpSettings.cs",
               "RelativeDocumentMoniker": "WebBackend\\Configurations\\SmtpSettings.cs",
@@ -812,27 +806,75 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 47,
+              "Title": "RedisSettings.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\RedisSettings.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Configurations\\RedisSettings.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\RedisSettings.cs",
+              "RelativeToolTip": "WebBackend\\Configurations\\RedisSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T07:25:49.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "RabbitmqSettings.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\RabbitmqSettings.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Configurations\\RabbitmqSettings.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\RabbitmqSettings.cs",
+              "RelativeToolTip": "WebBackend\\Configurations\\RabbitmqSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-29T13:11:16.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
               "Title": "JwtSettings.cs",
               "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\JwtSettings.cs",
               "RelativeDocumentMoniker": "WebBackend\\Configurations\\JwtSettings.cs",
               "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\JwtSettings.cs",
               "RelativeToolTip": "WebBackend\\Configurations\\JwtSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T08:48:52.662Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "ConfirmCode.cs",
-              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\ConfirmCode.cs",
-              "RelativeDocumentMoniker": "WebBackend\\Models\\DTO\\ConfirmCode.cs",
-              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Models\\DTO\\ConfirmCode.cs",
-              "RelativeToolTip": "WebBackend\\Models\\DTO\\ConfirmCode.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "DocumentIndex": 50,
+              "Title": "DownloadURL.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\DownloadURL.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Configurations\\DownloadURL.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Configurations\\DownloadURL.cs",
+              "RelativeToolTip": "WebBackend\\Configurations\\DownloadURL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T13:49:11.372Z"
+              "WhenOpened": "2025-03-29T15:36:32.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "WebBackend.csproj",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\WebBackend.csproj",
+              "RelativeDocumentMoniker": "WebBackend\\WebBackend.csproj",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\WebBackend.csproj",
+              "RelativeToolTip": "WebBackend\\WebBackend.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-27T08:36:19.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "RefreshTokenOperationFilter.cs",
+              "DocumentMoniker": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Swager\\RefreshTokenOperationFilter.cs",
+              "RelativeDocumentMoniker": "WebBackend\\Swager\\RefreshTokenOperationFilter.cs",
+              "ToolTip": "D:\\Visual Project\\Diplom\\WebBackend\\WebBackend\\Swager\\RefreshTokenOperationFilter.cs",
+              "RelativeToolTip": "WebBackend\\Swager\\RefreshTokenOperationFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T14:56:06.052Z"
             }
           ]
         }

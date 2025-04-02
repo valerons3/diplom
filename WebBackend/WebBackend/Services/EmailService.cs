@@ -1,5 +1,6 @@
 ﻿using System.Net.Mail;
 using System.Net;
+using System.Text.RegularExpressions;
 using WebBackend.Configurations;
 using WebBackend.Services.Interfaces;
 using Microsoft.Extensions.Options;
@@ -8,42 +9,47 @@ namespace WebBackend.Services
 {
     public class EmailService : IEmailService
     {
-        private readonly SmtpSettings settings;
+        private readonly SmtpSettings _settings;
+
         public EmailService(IOptions<SmtpSettings> smtpSettings)
         {
-            this.settings = smtpSettings.Value;
+            _settings = smtpSettings.Value;
         }
 
         public async Task<(bool Success, string? message)> SendEmailAsync(string email, string code)
         {
-            if (string.IsNullOrWhiteSpace(email) || !IsValidEmail(email))
+            if (string.IsNullOrWhiteSpace(email))
             {
-                return (false, "Некорректный email адрес");
+                return (false, "Email не может быть пустым");
             }
 
-            string smtpServer = settings.Server;
-            int smtpPort = settings.Port;
-            string smtpUsername = settings.Username;
-            string smtpPassword = settings.Password;
+            email = email.Trim();
+
+            if (!IsValidEmail(email))
+            {
+                return (false, $"Некорректный email адрес: {email}");
+            }
 
             try
             {
-                using (var smtpClient = new SmtpClient(smtpServer, smtpPort))
+                using var smtpClient = new SmtpClient(_settings.Server, _settings.Port)
                 {
-                    smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
-                    smtpClient.EnableSsl = true;
+                    Credentials = new NetworkCredential(_settings.Username, _settings.Password),
+                    EnableSsl = true
+                };
 
-                    using (var mailMessage = new MailMessage())
-                    {
-                        mailMessage.From = new MailAddress(smtpUsername);
-                        mailMessage.To.Add(email); 
-                        mailMessage.Subject = "Код подтверждения";
-                        mailMessage.Body = code;
+                using var mailMessage = new MailMessage
+                {
+                    From = new MailAddress(_settings.Username),
+                    Subject = "Код подтверждения",
+                    Body = code,
+                    IsBodyHtml = false
+                };
 
-                        await smtpClient.SendMailAsync(mailMessage);
-                        return (true, null);
-                    }
-                }
+                mailMessage.To.Add(email);
+
+                await smtpClient.SendMailAsync(mailMessage);
+                return (true, null);
             }
             catch (SmtpException ex)
             {
@@ -57,12 +63,17 @@ namespace WebBackend.Services
 
         private bool IsValidEmail(string email)
         {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
             try
             {
-                var mailAddress = new MailAddress(email);
-                return mailAddress.Address == email;
+                return Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                    RegexOptions.IgnoreCase,
+                    TimeSpan.FromMilliseconds(250));
             }
-            catch
+            catch (RegexMatchTimeoutException)
             {
                 return false;
             }

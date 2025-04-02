@@ -1,0 +1,19 @@
+{
+    "RabbitMQ": {
+      "Host": "localhost",
+      "Port": 5672,
+      "Username": "user",
+      "Password": "password",
+      "SenderQueue": "result",
+      "VirtualHost": "/",
+      "ReceiverQueue": "process"
+    },
+    "FastAPI": {
+        "Host": "localhost",
+        "Port": 8000
+    },
+    "FileShare":{
+      "BaseURL": "http://localhost:8000/fileshare/upload?"
+    }
+  }
+  

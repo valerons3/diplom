@@ -35,11 +35,16 @@ namespace WebBackend.Controllers
         }
 
         [HttpPost("upload")]
-        public async Task<IActionResult> UploadFile(IFormFile file)
+        public async Task<IActionResult> UploadFile(IFormFile file, [FromQuery]string method)
         {
 
             if (file == null || file.Length == 0)
                 return BadRequest(new { message = "Файл не передан" });
+
+            if (string.IsNullOrEmpty(method))
+                return BadRequest(new { message = "Необходимо передать название метода"});
+            if (method != "neural" && method != "classical")
+                return BadRequest(new { message = "Не верное название метода" });
 
             string? jwtToken = Request.Headers["Authorization"]
                             .FirstOrDefault()?
@@ -60,6 +65,7 @@ namespace WebBackend.Controllers
             Guid processId = Guid.NewGuid();
 
             var resultSaveFile = await fileService.SaveInputFileAsync(payload.Id, processId, file);
+            Console.WriteLine($"Message: {resultSaveFile.Message}\tResult: {resultSaveFile.Success}");
             if (!resultSaveFile.Success) { return StatusCode(500, new { message = resultSaveFile.Message }); }
 
             ProcessedData processData = new ProcessedData()
@@ -70,6 +76,7 @@ namespace WebBackend.Controllers
                 InputData = resultSaveFile.Message,
                 ResultData = null,
                 ProcessingTime = null,
+                ProcessMethod = method,
                 CommentResult = null,
                 RatingId = null,
                 CreatedAt = DateTime.UtcNow
@@ -87,7 +94,9 @@ namespace WebBackend.Controllers
             {
                 UserID = payload.Id,
                 ProcessID = processData.Id,
+                Status = ProcessStatus.Processing,
                 ProcessingTime = null,
+                ProcessMethod = method,
                 DownloadLink = $"{downloadURL.BaseUrl}userID={payload.Id}&processID={processData.Id}&fileName={file.FileName}"
             };
             var publishResult = rabbitService.Publish(rabbitData);

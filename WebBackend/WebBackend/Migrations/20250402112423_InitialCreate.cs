@@ -32,7 +32,8 @@ namespace WebBackend.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Token = table.Column<string>(type: "text", nullable: false)
+                    Token = table.Column<string>(type: "text", nullable: false),
+                    RevokedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -79,10 +80,13 @@ namespace WebBackend.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    AtWork = table.Column<bool>(type: "boolean", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     InputData = table.Column<string>(type: "text", nullable: false),
                     ResultData = table.Column<string>(type: "text", nullable: true),
+                    ProcessingTime = table.Column<TimeSpan>(type: "interval", nullable: true),
+                    ProcessMethod = table.Column<string>(type: "text", nullable: false),
+                    CommentResult = table.Column<string>(type: "text", nullable: true),
                     RatingId = table.Column<Guid>(type: "uuid", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },

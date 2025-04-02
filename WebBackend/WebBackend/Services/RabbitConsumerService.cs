@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using WebBackend.Configurations;
 using WebBackend.Models.DTO;
 using WebBackend.Repositories.Interfaces;
+using WebBackend.Models.Enums;
 
 public class RabbitConsumerService : BackgroundService
 {
@@ -64,15 +65,19 @@ public class RabbitConsumerService : BackgroundService
                 var rabbitData = JsonSerializer.Deserialize<RabbitData>(message);
                 if (rabbitData == null) throw new Exception("Ошибка десериализации JSON");
 
-                Console.WriteLine($"Received message: UserID={rabbitData.UserID}, ProcessID={rabbitData.ProcessID}, DownloadLink={rabbitData.DownloadLink}");
-
-                // Обрабатываем файл
-                var filePath = await DownloadFileAsync(rabbitData);
-                if (filePath != null)
+                if (rabbitData.Status == ProcessStatus.Failed)
                 {
-                    await UpdateProcessDataAsync(rabbitData, filePath);
+                    await UpdateProcessDataAsync(rabbitData, null);
                 }
-
+                else
+                {
+                    var filePath = await DownloadFileAsync(rabbitData);
+                    if (filePath != null)
+                    {
+                        await UpdateProcessDataAsync(rabbitData, filePath);
+                    }
+                }
+          
                 channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
             }
             catch (Exception ex)
@@ -104,7 +109,7 @@ public class RabbitConsumerService : BackgroundService
         return filePath;
     }
 
-    private async Task UpdateProcessDataAsync(RabbitData rabbitData, string filePath)
+    private async Task UpdateProcessDataAsync(RabbitData rabbitData, string? filePath)
     {
         using var scope = serviceScopeFactory.CreateScope();
         var dataRepository = scope.ServiceProvider.GetRequiredService<IProcessedDataRepository>();

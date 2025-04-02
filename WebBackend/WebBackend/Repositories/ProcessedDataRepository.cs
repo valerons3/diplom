@@ -14,7 +14,7 @@ namespace WebBackend.Repositories
             this.context = context;
         }
 
-        public async Task<(bool Sucess, string? message)> ChangeProcessDataAsync(ProcessStatus status, string resultData, 
+        public async Task<(bool Sucess, string? message)> ChangeProcessDataAsync(ProcessStatus status, string? resultData, 
             TimeSpan? processingTime, Guid processId)
         {
             try

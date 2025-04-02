@@ -6,6 +6,8 @@ using WebBackend.Configurations;
 using WebBackend.Models.DTO;
 using WebBackend.Services.Interfaces;
 using Microsoft.Extensions.Options;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 public class RabbitProducerService : IRabbitProducerService
 {
@@ -38,8 +40,15 @@ public class RabbitProducerService : IRabbitProducerService
                                  autoDelete: false,
                                  arguments: null);
 
-            var message = JsonSerializer.Serialize(data);
+
+            var options = new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping 
+            };
+            var message = JsonSerializer.Serialize(data, options);  
             var body = Encoding.UTF8.GetBytes(message);
+            Console.WriteLine($"Message: {message}");
+            Console.WriteLine($"Body: {Encoding.UTF8.GetString(body)}");
 
             var properties = channel.CreateBasicProperties();
             properties.Persistent = true;
