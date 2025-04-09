@@ -69,7 +69,6 @@ async def consume():
     """Основной процесс потребителя сообщений"""
     rabbit_config = CONFIG["RabbitMQ"]
     
-    # Создаем подключение к RabbitMQ
     connection = await aio_pika.connect_robust(
         f"amqp://{rabbit_config['Username']}:{rabbit_config['Password']}@"
         f"{rabbit_config['Host']}:{rabbit_config['Port']}/{rabbit_config['VirtualHost']}"
@@ -79,7 +78,6 @@ async def consume():
         channel = await connection.channel()
         queue = await channel.declare_queue(rabbit_config["ReceiverQueue"], durable=True)
 
-        print(f"🔄 Ожидание сообщений из очереди: {rabbit_config['ReceiverQueue']}")
 
         async for message in queue:
             await process_message(message)
