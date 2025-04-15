@@ -84,7 +84,7 @@ namespace WebBackend.Controllers
 
         [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<IActionResult> LoginUserAsync([FromBody]Login loginData)
+        public async Task<IActionResult> LoginUserAsync([FromBody] Login loginData)
         {
             User? user = await userRepository.GetEntityUserByEmailAsync(loginData.Email);
             if (user == null) { return BadRequest(new { message = "Не верный логин" }); }
@@ -116,7 +116,7 @@ namespace WebBackend.Controllers
             }
             else
             {
-                var resultChangeRefresh = 
+                var resultChangeRefresh =
                     await refreshTokenRepository.ChangeRefreshTokenByUserIdAsync(user.Id, refreshToken);
                 if (!resultChangeRefresh.Success) { return StatusCode(500, new { message = resultChangeRefresh.Message }); }
                 return Ok(new { JWT = jwtToken, Refresh = refreshToken });
@@ -162,7 +162,7 @@ namespace WebBackend.Controllers
 
         [HttpPost("confirm-code")]
         [AllowAnonymous]
-        public async Task<IActionResult> ConfirmCodeAsync([FromBody]ConfirmCode confirmData)
+        public async Task<IActionResult> ConfirmCodeAsync([FromBody] ConfirmCode confirmData)
         {
             EmailVerificationStatus status = await redisService.CheckEmailCodeAsync(confirmData.Token, confirmData.Code);
 
@@ -175,7 +175,7 @@ namespace WebBackend.Controllers
                 case EmailVerificationStatus.CodeValid:
                     var result = await PostUserAsync(confirmData.Token);
                     if (result.Success) { return Ok(new { JWT = result.jwtToken, Refresh = result.refreshToken }); }
-                    else { return StatusCode(500, new { message = result.message }); }
+                    else { return StatusCode(500, new { result.message }); }
                 default:
                     return StatusCode(500, new { message = "Неизвестная ошибка" });
             }
@@ -221,7 +221,7 @@ namespace WebBackend.Controllers
             var existingUser = await userRepository.CheckUserExistsAsync(userDTO.Email);
             if (existingUser.Success)
             {
-                return BadRequest(new { message = existingUser.message });
+                return BadRequest(new { existingUser.message });
             }
 
             string token = tokenService.GenerateSessionToken();
@@ -249,7 +249,7 @@ namespace WebBackend.Controllers
             var userDataIsCached = await redisService.PostUserDataAsync(user, token, code);
             if (!userDataIsCached.Success)
             {
-                return StatusCode(500, new { message = userDataIsCached.message });
+                return StatusCode(500, new { userDataIsCached.message });
             }
 
             return Ok(new { sessionToken = token });

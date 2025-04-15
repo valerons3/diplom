@@ -44,7 +44,7 @@ namespace WebBackend.Repositories
                 {
                     Id = Guid.NewGuid(),
                     Token = token,
-                    RevokedAt = DateTime.UtcNow  
+                    RevokedAt = DateTime.UtcNow
                 };
 
                 await _context.RevokedTokens.AddAsync(revokedToken);

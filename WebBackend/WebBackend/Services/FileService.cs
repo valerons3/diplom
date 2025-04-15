@@ -4,18 +4,7 @@ namespace WebBackend.Services
 {
     public class FileService : IFileService
     {
-        private readonly string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
-        public async Task<(bool Success, string? Message, byte[]? fileBytes)> UploadFile(string userID, string processID, string fileName)
-        {
-            string filePath = Path.Combine(uploadPath, userID, processID, "Input", fileName);
-            if (!File.Exists(filePath))
-            {
-                return (false, "Файл не найден", null);
-            }
-            var fileBytes = await File.ReadAllBytesAsync(filePath);
-
-            return (true, null, fileBytes);
-        }
+        private readonly string uploadPath = "Uploads";
         public async Task<(bool Success, string? Message)> SaveInputFileAsync(Guid userId, Guid processId, IFormFile file)
         {
             try
@@ -26,7 +15,7 @@ namespace WebBackend.Services
 
                 string inputFilePath = Path.Combine(userProcessInputPath, file.FileName);
 
-                await using var stream = new FileStream(inputFilePath, FileMode.Create, 
+                await using var stream = new FileStream(inputFilePath, FileMode.Create,
                     FileAccess.Write, FileShare.None);
                 await file.CopyToAsync(stream);
 

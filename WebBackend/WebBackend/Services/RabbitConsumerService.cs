@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using WebBackend.Configurations;
 using WebBackend.Models.DTO;
-using WebBackend.Repositories.Interfaces;
 using WebBackend.Models.Enums;
+using WebBackend.Configurations;
+using WebBackend.Repositories.Interfaces;
 
 public class RabbitConsumerService : BackgroundService
 {
@@ -100,7 +100,7 @@ public class RabbitConsumerService : BackgroundService
 
         var fileBytes = await response.Content.ReadAsByteArrayAsync();
         var fileName = rabbitData.DownloadLink.Split("fileName=")[^1];
-        var resultPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", rabbitData.UserID.ToString(), rabbitData.ProcessID.ToString(), "Result");
+        var resultPath = Path.Combine("Uploads", rabbitData.UserID.ToString(), rabbitData.ProcessID.ToString(), "Result");
 
         Directory.CreateDirectory(resultPath);
         var filePath = Path.Combine(resultPath, fileName);

@@ -10,7 +10,7 @@ namespace WebBackend.Services
     public class RedisService : IRedisService
     {
         private readonly IDatabase database;
-        private readonly TimeSpan expiration = TimeSpan.FromMinutes(3); 
+        private readonly TimeSpan expiration = TimeSpan.FromMinutes(3);
 
         public RedisService(IConnectionMultiplexer redis)
         {

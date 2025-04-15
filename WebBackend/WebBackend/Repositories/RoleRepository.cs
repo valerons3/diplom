@@ -1,6 +1,6 @@
 ﻿using WebBackend.Data;
-using WebBackend.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using WebBackend.Repositories.Interfaces;
 
 namespace WebBackend.Repositories
 {

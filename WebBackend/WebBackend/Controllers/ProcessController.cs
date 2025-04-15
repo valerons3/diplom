@@ -21,10 +21,10 @@ namespace WebBackend.Controllers
         private readonly ITokenService tokenService;
         private readonly IProcessedDataRepository processedDataRepository;
         private readonly IRabbitProducerService rabbitService;
-        private readonly DownloadURL downloadURL; 
+        private readonly DownloadURL downloadURL;
         private readonly string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
         public ProcessController(IFileService fileService, ITokenService tokenService,
-            IProcessedDataRepository processedDataRepository, IRabbitProducerService rabbitService, 
+            IProcessedDataRepository processedDataRepository, IRabbitProducerService rabbitService,
             IOptions<DownloadURL> downloadURL)
         {
             this.fileService = fileService;
@@ -34,15 +34,79 @@ namespace WebBackend.Controllers
             this.downloadURL = downloadURL.Value;
         }
 
+        [HttpGet("userprocessdata")]
+        public async Task<IActionResult> GetAllUserProcessData()
+        {
+            string? jwtToken = Request.Headers["Authorization"]
+                            .FirstOrDefault()?
+                            .Replace("Bearer ", "", StringComparison.OrdinalIgnoreCase)
+                            .Trim();
+
+            if (jwtToken == null)
+            {
+                return BadRequest(new { message = "Нужно передать JWT токен" });
+            }
+
+            JWTPayload? payload = tokenService.GetJWTPayload(jwtToken);
+            if (payload == null)
+            {
+                return BadRequest(new { message = "Не валидный JWT токен" });
+            }
+
+            List<ProcessedData>? data = await processedDataRepository.GetAllUserProcessedData(payload.Id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+
+            var result = data.Select(p => new ProcessDataDTO
+            {
+                Status = p.Status,
+                InputData = p.InputData,
+                ResultData = p.ResultData,
+                ProcessingTime = p.ProcessingTime,
+                ProcessMethod = p.ProcessMethod,
+                CommentResult = p.CommentResult,
+                RatingId = p.RatingId,
+                CreatedAt = p.CreatedAt
+            }).ToList();
+
+            return Ok(result);
+        }
+
+        [HttpGet("processdata")]
+        public async Task<IActionResult> GetProcessInfoByIdAsync([FromQuery] Guid id)
+        {
+            ProcessedData? data = await processedDataRepository.GetProcessDataByIdAsync(id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+
+            ProcessDataDTO dataDTO = new ProcessDataDTO()
+            {
+                Status = data.Status,
+                InputData = data.InputData,
+                ResultData = data.ResultData,
+                ProcessingTime = data.ProcessingTime,
+                ProcessMethod = data.ProcessMethod,
+                CommentResult = data.CommentResult,
+                RatingId = data.RatingId,
+                CreatedAt = data.CreatedAt
+            };
+
+            return Ok(dataDTO);
+        }
+
         [HttpPost("upload")]
-        public async Task<IActionResult> UploadFile(IFormFile file, [FromQuery]string method)
+        public async Task<IActionResult> UploadFile(IFormFile file, [FromQuery] string method)
         {
 
             if (file == null || file.Length == 0)
                 return BadRequest(new { message = "Файл не передан" });
 
             if (string.IsNullOrEmpty(method))
-                return BadRequest(new { message = "Необходимо передать название метода"});
+                return BadRequest(new { message = "Необходимо передать название метода" });
             if (method != "neural" && method != "classical")
                 return BadRequest(new { message = "Не верное название метода" });
 
@@ -55,7 +119,7 @@ namespace WebBackend.Controllers
             {
                 return BadRequest(new { message = "Нужно передать JWT токен" });
             }
-            
+
             JWTPayload? payload = tokenService.GetJWTPayload(jwtToken);
             if (payload == null)
             {
@@ -83,13 +147,14 @@ namespace WebBackend.Controllers
             };
 
             var resultSaveProcessData = await processedDataRepository.PostProcessDataAsync(processData);
-            if (!resultSaveProcessData.Sucess) {
+            if (!resultSaveProcessData.Sucess)
+            {
                 return StatusCode(500,
-                new { message = "Ошибка при сохранении данных" }); }
+                new { message = "Ошибка при сохранении данных" });
+            }
 
 
-            string downloadLink = $"{downloadURL.BaseUrl}userID={payload.Id}&processID={processData.Id}&fileName={file.FileName}";
-            Console.WriteLine(downloadLink);
+            string downloadLink = $"{downloadURL.BaseUrl}{resultSaveFile.Message.Replace("\\", "/")}";
             RabbitData rabbitData = new RabbitData()
             {
                 UserID = payload.Id,
@@ -97,7 +162,7 @@ namespace WebBackend.Controllers
                 Status = ProcessStatus.Processing,
                 ProcessingTime = null,
                 ProcessMethod = method,
-                DownloadLink = $"{downloadURL.BaseUrl}userID={payload.Id}&processID={processData.Id}&fileName={file.FileName}"
+                DownloadLink = downloadLink
             };
             var publishResult = rabbitService.Publish(rabbitData);
             if (!publishResult.Success)
@@ -105,7 +170,7 @@ namespace WebBackend.Controllers
                 return StatusCode(500, new { message = publishResult.Message });
             }
 
-            return Ok(new { message = "Данные отправлены на обработку" });
+            return Ok(new { message = "Данные отправлены на обработку", id = processId });
         }
     }
 

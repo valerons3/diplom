@@ -28,7 +28,7 @@ namespace WebBackend.Services
 
             if (!tokenHandler.CanReadToken(token))
             {
-                return null; 
+                return null;
             }
 
             var jwtToken = tokenHandler.ReadJwtToken(token);
@@ -38,7 +38,7 @@ namespace WebBackend.Services
 
             if (idClaim == null || roleClaim == null)
             {
-                return null; 
+                return null;
             }
 
             return new JWTPayload
@@ -50,9 +50,9 @@ namespace WebBackend.Services
 
         public string GenerateCode()
         {
-            byte[] bytes = new byte[4]; 
+            byte[] bytes = new byte[4];
             RandomNumberGenerator.Fill(bytes);
-            int number = BitConverter.ToInt32(bytes, 0) % 900000 + 100000; 
+            int number = BitConverter.ToInt32(bytes, 0) % 900000 + 100000;
             return Math.Abs(number).ToString();
         }
 
@@ -63,8 +63,8 @@ namespace WebBackend.Services
 
             var claims = new[]
             {
-                new Claim("id", user.Id.ToString()),   
-                new Claim("role", role.Name)           
+                new Claim("id", user.Id.ToString()),
+                new Claim("role", role.Name)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key));
@@ -85,7 +85,7 @@ namespace WebBackend.Services
 
         public string GenerateRefreshToken()
         {
-            var randomNumber = new byte[32]; 
+            var randomNumber = new byte[32];
             using (var rng = RandomNumberGenerator.Create())
             {
                 rng.GetBytes(randomNumber);

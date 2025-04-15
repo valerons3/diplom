@@ -39,7 +39,7 @@ namespace WebBackend.Repositories
                 }
 
                 refreshToken.token = token;
-                refreshToken.ExpireDate = DateTime.UtcNow.AddDays(20); 
+                refreshToken.ExpireDate = DateTime.UtcNow.AddDays(20);
 
                 await context.SaveChangesAsync();
                 return (true, "Токен успешно обновлен");
@@ -55,12 +55,12 @@ namespace WebBackend.Repositories
             try
             {
                 return await context.RefreshTokens
-                    .AsNoTracking() 
+                    .AsNoTracking()
                     .FirstOrDefaultAsync(t => t.token == token);
             }
             catch
             {
-                return null;  
+                return null;
             }
         }
 
@@ -81,7 +81,7 @@ namespace WebBackend.Repositories
                 await context.SaveChangesAsync();
                 await transaction.CommitAsync();
 
-                return (true, null); 
+                return (true, null);
             }
             catch (DbUpdateException dbEx)
             {

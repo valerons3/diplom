@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using WebBackend.Configurations;
 using WebBackend.Data;
 using WebBackend.Repositories;
@@ -18,7 +21,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+}); 
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -142,6 +149,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+var provider = new FileExtensionContentTypeProvider();
+provider.Mappings[".mat"] = "application/octet-stream";
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "Uploads")
+    ),
+    RequestPath = "/Uploads",
+    ContentTypeProvider = provider
+});
+
 app.Use(async (context, next) =>
 {
     context.Response.Headers["Cache-Control"] = "no-store";
@@ -153,6 +172,8 @@ if (!Directory.Exists(uploadPath))
 {
     Directory.CreateDirectory(uploadPath);
 }
+
+
 
 app.UseHttpsRedirection();
 

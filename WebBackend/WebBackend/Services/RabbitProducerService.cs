@@ -2,12 +2,12 @@
 using System;
 using System.Text;
 using System.Text.Json;
-using WebBackend.Configurations;
 using WebBackend.Models.DTO;
-using WebBackend.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using WebBackend.Services.Interfaces;
+using WebBackend.Configurations;
 
 public class RabbitProducerService : IRabbitProducerService
 {

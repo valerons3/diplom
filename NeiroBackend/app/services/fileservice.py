@@ -12,12 +12,19 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../upload
 
 def extract_filename(url: str) -> str:
     parsed_url = urlparse(url)
-    
+
     query_params = parse_qs(parsed_url.query)
-    
     file_name = query_params.get('fileName', [None])[0]
-    
-    return file_name
+
+    if file_name:
+        return file_name
+
+    path_parts = parsed_url.path.split("/")
+    if path_parts:
+        return path_parts[-1]  
+
+    return None  
+
 
 def create_ssl_context():
     ssl_context = ssl.create_default_context()

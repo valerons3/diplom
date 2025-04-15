@@ -14,7 +14,21 @@ namespace WebBackend.Repositories
             this.context = context;
         }
 
-        public async Task<(bool Sucess, string? message)> ChangeProcessDataAsync(ProcessStatus status, string? resultData, 
+        public async Task<List<ProcessedData>?> GetAllUserProcessedData(Guid userID)
+        {
+            List<ProcessedData>? processedDatas = await context.ProccesedDatas
+                .Where(p => p.UserId == userID)
+                .OrderBy(p => p.CreatedAt)
+                .ToListAsync();
+            return processedDatas;
+        }
+
+        public async Task<ProcessedData?> GetProcessDataByIdAsync(Guid processId)
+        {
+            ProcessedData? data = await context.ProccesedDatas.FirstOrDefaultAsync(pd => pd.Id == processId);
+            return data;
+        }
+        public async Task<(bool Sucess, string? message)> ChangeProcessDataAsync(ProcessStatus status, string? resultData,
             TimeSpan? processingTime, Guid processId)
         {
             try
