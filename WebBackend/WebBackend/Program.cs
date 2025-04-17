@@ -24,7 +24,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-}); 
+});
+
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -142,12 +154,23 @@ builder.Services.AddScoped<IRevokedTokenRepository, RevokedTokenRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+// Configure
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate();
 }
+
+string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+if (!Directory.Exists(uploadPath))
+{
+    Directory.CreateDirectory(uploadPath);
+}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 var provider = new FileExtensionContentTypeProvider();
 provider.Mappings[".mat"] = "application/octet-stream";
@@ -167,13 +190,8 @@ app.Use(async (context, next) =>
     await next();
 });
 
-string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
-if (!Directory.Exists(uploadPath))
-{
-    Directory.CreateDirectory(uploadPath);
-}
-
-
+// CORS
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 
