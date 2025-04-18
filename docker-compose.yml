@@ -1,4 +1,30 @@
 services:
+  api:
+    container_name: api
+    build:
+      context: ./WebBackend  
+      dockerfile: /DOCKERFILE
+    ports:
+      - "5005:5005"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    networks:
+      - diplomnetwork
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+    restart: always
+  microservice:
+    container_name: microservice
+    build:
+      context: ./NeiroBackend
+      dockerfile: DOCKERFILE
+    networks:
+      - diplomnetwork
+    depends_on:
+      - rabbitmq
+    restart: always
   postgres:
     image: postgres:15
     container_name: postgres
@@ -7,8 +33,8 @@ services:
       POSTGRES_DB: diplom
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-    ports:
-      - "5433:5432"
+    networks:
+      - diplomnetwork
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -16,8 +42,8 @@ services:
     image: redis:7
     container_name: redis
     restart: always
-    ports:
-      - "6379:6379"
+    networks:
+      - diplomnetwork
     volumes:
       - redis_data:/data
     command: ["redis-server", "--appendonly", "yes"]
@@ -26,9 +52,8 @@ services:
     image: "rabbitmq:management"
     container_name: rabbitmq
     restart: always
-    ports:
-      - "5672:5672" 
-      - "15672:15672" 
+    networks:
+      - diplomnetwork 
     environment:
       RABBITMQ_DEFAULT_USER: user
       RABBITMQ_DEFAULT_PASS: password
@@ -39,3 +64,7 @@ volumes:
   postgres_data:
   redis_data:
   rabbitmq_data:
+
+networks:
+  diplomnetwork:  
+    driver: bridge
