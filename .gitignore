@@ -484,3 +484,4 @@ $RECYCLE.BIN/
 *.swp
 /WebBackend/.vs/
 /WebBackend/WebBackend/obj/
+/WebBackend/WebBackend/bin/
