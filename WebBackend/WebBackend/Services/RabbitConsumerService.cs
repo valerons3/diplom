@@ -67,14 +67,14 @@ public class RabbitConsumerService : BackgroundService
 
                 if (rabbitData.Status == ProcessStatus.Failed)
                 {
-                    await UpdateProcessDataAsync(rabbitData, null);
+                    await UpdateProcessDataAsync(rabbitData, null, null);
                 }
                 else
                 {
-                    var filePath = await DownloadFileAsync(rabbitData);
-                    if (filePath != null)
+                    var resultDownload = await DownloadFilesAsync(rabbitData);
+                    if (resultDownload.filePath != null && resultDownload.imagePath != null)
                     {
-                        await UpdateProcessDataAsync(rabbitData, filePath);
+                        await UpdateProcessDataAsync(rabbitData, resultDownload.filePath, resultDownload.imagePath);
                     }
                 }
           
@@ -89,33 +89,40 @@ public class RabbitConsumerService : BackgroundService
         channel.BasicConsume(queue: settings.ReceiverQueue, autoAck: false, consumer: consumer);
     }
 
-    private async Task<string?> DownloadFileAsync(RabbitData rabbitData)
+    private async Task<(string? filePath, string? imagePath)> DownloadFilesAsync(RabbitData rabbitData)
     {
-        var response = await httpClient.GetAsync(rabbitData.DownloadLink);
-        if (!response.IsSuccessStatusCode)
+        var responseFile = await httpClient.GetAsync(rabbitData.DownloadLink);
+        var responseImage = await httpClient.GetAsync(rabbitData.ImageDownloadLink);
+        if (!responseFile.IsSuccessStatusCode || !responseImage.IsSuccessStatusCode)
         {
-            Console.WriteLine($"Ошибка скачивания файла: {response.StatusCode}");
-            return null;
+            Console.WriteLine($"Ошибка скачивания файла: {responseFile.StatusCode}");
+            return (null, null);
         }
 
-        var fileBytes = await response.Content.ReadAsByteArrayAsync();
+        var imageBytes = await responseImage.Content.ReadAsByteArrayAsync();
+        var imageName = rabbitData.ImageDownloadLink.Split("fileName=")[^1];
+        var fileBytes = await responseFile.Content.ReadAsByteArrayAsync();
         var fileName = rabbitData.DownloadLink.Split("fileName=")[^1];
-        var resultPath = Path.Combine("Uploads", rabbitData.UserID.ToString(), rabbitData.ProcessID.ToString(), "Result");
 
-        Directory.CreateDirectory(resultPath);
-        var filePath = Path.Combine(resultPath, fileName);
+        var resultFileImagePath = Path.Combine("Uploads", rabbitData.UserID.ToString(), rabbitData.ProcessID.ToString(), "Result");
 
+        Directory.CreateDirectory(resultFileImagePath);
+
+        var imagePath = Path.Combine(resultFileImagePath, imageName);
+        var filePath = Path.Combine(resultFileImagePath, fileName);
+
+        await File.WriteAllBytesAsync(imagePath, imageBytes);
         await File.WriteAllBytesAsync(filePath, fileBytes);
-        return filePath;
+        return (filePath, imagePath);
     }
 
-    private async Task UpdateProcessDataAsync(RabbitData rabbitData, string? filePath)
+    private async Task UpdateProcessDataAsync(RabbitData rabbitData, string? filePath, string? imagePath)
     {
         using var scope = serviceScopeFactory.CreateScope();
         var dataRepository = scope.ServiceProvider.GetRequiredService<IProcessedDataRepository>();
 
         var resultChangeData = await dataRepository.ChangeProcessDataAsync(
-            rabbitData.Status, filePath, rabbitData.ProcessingTime, rabbitData.ProcessID
+            rabbitData.Status, filePath, imagePath, rabbitData.ProcessingTime, rabbitData.ProcessID
         );
 
         if (!resultChangeData.Sucess)

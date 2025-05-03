@@ -8,7 +8,8 @@ namespace WebBackend.Models.DTO
         public Guid ProcessID { get; set; }
         public TimeSpan? ProcessingTime { get; set; } = null;
         public ProcessStatus Status { get; set; } = ProcessStatus.Processing;
-        public string ProcessMethod { get; set; } = string.Empty; 
-        public string? DownloadLink { get; set; }
+        public string ProcessMethod { get; set; } = string.Empty;
+        public string? DownloadLink { get; set; } = null!;
+        public string? ImageDownloadLink { get; set; } = null!;
     }
 }

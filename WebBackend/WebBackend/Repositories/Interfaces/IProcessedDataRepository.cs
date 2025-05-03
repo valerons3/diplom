@@ -7,7 +7,7 @@ namespace WebBackend.Repositories.Interfaces
     {
         public Task<(bool Sucess, string? message)> PostProcessDataAsync(ProcessedData processedData);
         public Task<(bool Sucess, string? message)> ChangeProcessDataAsync(ProcessStatus status, string? resultData,
-            TimeSpan? processingTime, Guid processId);
+            string? imageData, TimeSpan? processingTime, Guid processId);
         public Task<ProcessedData?> GetProcessDataByIdAsync(Guid processId);
         public Task<List<ProcessedData>?> GetAllUserProcessedData(Guid userID);
     }

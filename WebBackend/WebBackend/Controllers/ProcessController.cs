@@ -64,6 +64,7 @@ namespace WebBackend.Controllers
                 Status = p.Status,
                 InputData = p.InputData,
                 ResultData = p.ResultData,
+                PhaseImage = p.PhaseImage,
                 ProcessingTime = p.ProcessingTime,
                 ProcessMethod = p.ProcessMethod,
                 CommentResult = p.CommentResult,
@@ -88,6 +89,7 @@ namespace WebBackend.Controllers
                 Status = data.Status,
                 InputData = data.InputData,
                 ResultData = data.ResultData,
+                PhaseImage = data.PhaseImage,
                 ProcessingTime = data.ProcessingTime,
                 ProcessMethod = data.ProcessMethod,
                 CommentResult = data.CommentResult,
@@ -139,6 +141,7 @@ namespace WebBackend.Controllers
                 UserId = payload.Id,
                 InputData = resultSaveFile.Message,
                 ResultData = null,
+                PhaseImage = null,
                 ProcessingTime = null,
                 ProcessMethod = method,
                 CommentResult = null,
@@ -162,7 +165,8 @@ namespace WebBackend.Controllers
                 Status = ProcessStatus.Processing,
                 ProcessingTime = null,
                 ProcessMethod = method,
-                DownloadLink = downloadLink
+                DownloadLink = downloadLink,
+                ImageDownloadLink = null
             };
             var publishResult = rabbitService.Publish(rabbitData);
             if (!publishResult.Success)

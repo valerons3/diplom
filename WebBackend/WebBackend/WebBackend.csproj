@@ -32,13 +32,4 @@
     <PackageReference Include="System.Text.Json" Version="9.0.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Migrations\20250402112423_InitialCreate.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Update="Migrations\AppDbContextModelSnapshot.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-  </ItemGroup>
-
 </Project>

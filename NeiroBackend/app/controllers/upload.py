@@ -12,8 +12,9 @@ def file_stream_and_cleanup(file_path: str, process_dir: str):
             yield from iter(lambda: f.read(4096), b'')
     finally:
         try:
-            if os.path.exists(process_dir):
-                shutil.rmtree(process_dir)  
+            pass
+            #if os.path.exists(process_dir):
+            #    shutil.rmtree(process_dir)  
         except OSError as e:
             print(f"Cleanup failed: {e}")
 

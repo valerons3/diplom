@@ -5,7 +5,10 @@ import aiofiles
 import aiohttp
 import ssl
 import scipy
+import numpy as np
+import scipy.io
 
+from matplotlib import pyplot as plt
 from urllib.parse import urlparse, parse_qs
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../uploads"))
@@ -53,12 +56,22 @@ async def WriteInputFile(userID, processID, fileName, content):
         await file.write(content)
     return fullPath
 
+async def save_img(np_image, path):
+    cs = plt.contourf(np_image, levels=100)
+    plt.colorbar(cs)
+    plt.savefig(path)
+
 async def WriteResultFile(userID, processID, fileName, content):
     newFileName = f'Result{fileName}'
     fullPath = os.path.join(BASE_DIR, str(userID), str(processID), "Result", newFileName)
 
     os.makedirs(os.path.dirname(fullPath), exist_ok=True)
     scipy.io.savemat(fullPath, {"content": content})#сохраняет с ключом content 
+
+    fullPathImg = os.path.join(BASE_DIR, str(userID), str(processID), "Result", 'Phase.png')
+    
+    await save_img(content, fullPathImg)
+    
     return newFileName
 
 async def DeleteUserProcessDirectory(userID, processID):

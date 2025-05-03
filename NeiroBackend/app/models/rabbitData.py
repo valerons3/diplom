@@ -17,6 +17,7 @@ class RabbitData:
     Status: ProcessStatus = ProcessStatus.PROCESSING  
     ProcessMethod: Optional[str] = None  
     DownloadLink: Optional[str] = None
+    ImageDownloadLink: Optional[str] = None
 
     @staticmethod
     def from_json(json_str: str) -> "RabbitData":
@@ -28,7 +29,8 @@ class RabbitData:
             ProcessingTime=data.get("ProcessingTime"),
             Status=ProcessStatus(data["Status"]) if "Status" in data else ProcessStatus.PROCESSING,
             ProcessMethod=data.get("ProcessMethod"),
-            DownloadLink=data.get("DownloadLink")
+            DownloadLink=data.get("DownloadLink"),
+            ImageDownloadLink=data.get("ImageDownloadLink")
         )
     
     def to_json(self) -> str:
@@ -38,5 +40,6 @@ class RabbitData:
             "ProcessingTime": self.ProcessingTime,
             "Status": self.Status.value,
             "ProcessMethod": self.ProcessMethod,  
-            "DownloadLink": self.DownloadLink
+            "DownloadLink": self.DownloadLink,
+            "ImageDownloadLink": self.ImageDownloadLink
         })

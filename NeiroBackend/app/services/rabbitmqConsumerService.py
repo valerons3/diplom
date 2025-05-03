@@ -41,12 +41,14 @@ async def process_message(message: aio_pika.IncomingMessage):
             if result['status'] == ProcessStatus.SUCCESS:
                 newFileName = await WriteResultFile(data.UserID, data.ProcessID, fileName, result['content'])
                 downloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName={newFileName}'
+                imageDownloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName=Phase.png'
                 rabbitData = RabbitData(
                 UserID=data.UserID,
                 ProcessID=data.ProcessID,
                 Status=ProcessStatus.SUCCESS,
                 ProcessMethod=data.ProcessMethod,
                 DownloadLink=downloadLink,
+                ImageDownloadLink=imageDownloadLink,
                 ProcessingTime=result["processing_time"]
                 )
                 await send_message_to_queue(rabbitData)

@@ -139,18 +139,16 @@ def unwrap_phase(filePath: str):
 
     start_time = time.time()
     with torch.no_grad():
+        # удаляет все фиктивные измерения массива (512, 512, 1) --> (512, 512)
+        torch_phase = torch_phase.squeeze()
         torch_phase = torch_phase.unsqueeze(0).unsqueeze(0)
-        print(torch_phase.size())
         res = model(torch_phase)
 
     processing_time = time.time() - start_time
     processing_time = datetime.timedelta(seconds=processing_time)
-
-
-    content = os.urandom(1024)
-
+    # в content будет numpy массив 512 на  512, чтобы проверить размерность -- res["content"].shape
     return {
         "status": ProcessStatus.SUCCESS,
         "processing_time": str(processing_time),
-        "content": res.squeeze(0).numpy(),
+        "content": res.squeeze().numpy(),
     }

@@ -29,7 +29,7 @@ namespace WebBackend.Repositories
             return data;
         }
         public async Task<(bool Sucess, string? message)> ChangeProcessDataAsync(ProcessStatus status, string? resultData,
-            TimeSpan? processingTime, Guid processId)
+            string? imageData, TimeSpan? processingTime, Guid processId)
         {
             try
             {
@@ -41,6 +41,7 @@ namespace WebBackend.Repositories
 
                 existingProcessData.Status = status;
                 existingProcessData.ResultData = resultData;
+                existingProcessData.PhaseImage = imageData;
                 existingProcessData.ProcessingTime = processingTime;
                 if (status == ProcessStatus.Failed)
                 {
