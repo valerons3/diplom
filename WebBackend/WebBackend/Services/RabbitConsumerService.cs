@@ -14,6 +14,7 @@ using WebBackend.Models.DTO;
 using WebBackend.Models.Enums;
 using WebBackend.Configurations;
 using WebBackend.Repositories.Interfaces;
+using WebBackend.Services.Interfaces;
 
 public class RabbitConsumerService : BackgroundService
 {
@@ -104,16 +105,15 @@ public class RabbitConsumerService : BackgroundService
         var fileBytes = await responseFile.Content.ReadAsByteArrayAsync();
         var fileName = rabbitData.DownloadLink.Split("fileName=")[^1];
 
-        var resultFileImagePath = Path.Combine("Uploads", rabbitData.UserID.ToString(), rabbitData.ProcessID.ToString(), "Result");
+        using var scope = serviceScopeFactory.CreateScope();
+        var fileService = scope.ServiceProvider.GetRequiredService<IFileService>();
 
-        Directory.CreateDirectory(resultFileImagePath);
+        var imageSaveResult = await fileService.SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID, 
+            imageBytes, imageName);
+        var fileSaveResult = await fileService.SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID,
+            fileBytes, fileName);
 
-        var imagePath = Path.Combine(resultFileImagePath, imageName);
-        var filePath = Path.Combine(resultFileImagePath, fileName);
-
-        await File.WriteAllBytesAsync(imagePath, imageBytes);
-        await File.WriteAllBytesAsync(filePath, fileBytes);
-        return (filePath, imagePath);
+        return (fileSaveResult.Message, imageSaveResult.Message);
     }
 
     private async Task UpdateProcessDataAsync(RabbitData rabbitData, string? filePath, string? imagePath)
