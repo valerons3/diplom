@@ -12,7 +12,7 @@ using WebBackend.Data;
 namespace WebBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250502073607_ChangeDatabase")]
+    [Migration("20250507201344_ChangeDatabase")]
     partial class ChangeDatabase
     {
         /// <inheritdoc />
@@ -89,6 +89,9 @@ namespace WebBackend.Migrations
 
                     b.Property<int>("Grade")
                         .HasColumnType("integer");
+
+                    b.Property<Guid>("ProcessedDataId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -170,15 +173,14 @@ namespace WebBackend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<string>("ActionType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Timestamp")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Statistics");
                 });
@@ -246,17 +248,6 @@ namespace WebBackend.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("WebBackend.Models.Entity.Statistic", b =>
-                {
-                    b.HasOne("WebBackend.Models.Entity.User", "User")
-                        .WithMany("UserStatistics")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("WebBackend.Models.Entity.User", b =>
                 {
                     b.HasOne("WebBackend.Models.Entity.Role", "UserRole")
@@ -283,8 +274,6 @@ namespace WebBackend.Migrations
                     b.Navigation("UserProcessedData");
 
                     b.Navigation("UserRefreshToken");
-
-                    b.Navigation("UserStatistics");
                 });
 #pragma warning restore 612, 618
         }
