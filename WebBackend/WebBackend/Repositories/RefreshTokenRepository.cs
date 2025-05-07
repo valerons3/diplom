@@ -8,10 +8,12 @@ namespace WebBackend.Repositories
     public class RefreshTokenRepository : IRefreshTokenRepository
     {
         private readonly AppDbContext context;
+        private readonly ILogger<RefreshTokenRepository> logger;
 
-        public RefreshTokenRepository(AppDbContext context)
+        public RefreshTokenRepository(AppDbContext context, ILogger<RefreshTokenRepository> logger)
         {
             this.context = context;
+            this.logger = logger;
         }
 
         public async Task<(bool Success, string? Message)> PostRefreshTokenAsync(RefreshToken token)
@@ -24,6 +26,7 @@ namespace WebBackend.Repositories
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при сохранении refresh токена. RefreshToken: {RefreshToken}", token.token);
                 return (false, $"Ошибка при сохранении токена: {ex.Message}");
             }
         }
@@ -46,6 +49,8 @@ namespace WebBackend.Repositories
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при обновлении refresh токена. UserId: {UserId}, RefreshToken: {RefreshToken}",
+                    id, token);
                 return (false, $"Ошибка при обновлении токена: {ex.Message}");
             }
         }
@@ -58,8 +63,9 @@ namespace WebBackend.Repositories
                     .AsNoTracking()
                     .FirstOrDefaultAsync(t => t.token == token);
             }
-            catch
+            catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при получении refresh токена");
                 return null;
             }
         }
@@ -83,14 +89,10 @@ namespace WebBackend.Repositories
 
                 return (true, null);
             }
-            catch (DbUpdateException dbEx)
-            {
-                await transaction.RollbackAsync();
-                return (false, $"Ошибка базы данных: {dbEx.InnerException?.Message ?? dbEx.Message}");
-            }
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
+                logger.LogError(ex, "Ошибка при удалении refresh токена");
                 return (false, $"Неизвестная ошибка: {ex.Message}");
             }
         }

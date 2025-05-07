@@ -10,10 +10,11 @@ namespace WebBackend.Services
     public class EmailService : IEmailService
     {
         private readonly SmtpSettings settings;
-
-        public EmailService(IOptions<SmtpSettings> smtpSettings)
+        private readonly ILogger<EmailService> logger;
+        public EmailService(IOptions<SmtpSettings> smtpSettings, ILogger<EmailService> logger)
         {
             settings = smtpSettings.Value;
+            this.logger = logger;
         }
 
         public async Task<(bool Success, string? message)> SendEmailAsync(string email, string code)
@@ -53,10 +54,12 @@ namespace WebBackend.Services
             }
             catch (SmtpException ex)
             {
+                logger.LogError(ex, "Ошибка SMTP");
                 return (false, $"Ошибка SMTP: {ex.StatusCode}");
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка отправки email");
                 return (false, $"Ошибка отправки: {ex.Message}");
             }
         }
@@ -73,8 +76,9 @@ namespace WebBackend.Services
                     RegexOptions.IgnoreCase,
                     TimeSpan.FromMilliseconds(250));
             }
-            catch (RegexMatchTimeoutException)
+            catch (RegexMatchTimeoutException ex)
             {
+                logger.LogError(ex, "Превышено время ожидания при попытке сопоставления строки с регулярным выражением");
                 return false;
             }
         }

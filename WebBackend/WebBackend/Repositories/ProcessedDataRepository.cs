@@ -9,24 +9,45 @@ namespace WebBackend.Repositories
     public class ProcessedDataRepository : IProcessedDataRepository
     {
         private readonly AppDbContext context;
-        public ProcessedDataRepository(AppDbContext context)
+        private readonly ILogger<ProcessedDataRepository> logger;
+        public ProcessedDataRepository(AppDbContext context, ILogger<ProcessedDataRepository> logger)
         {
             this.context = context;
+            this.logger = logger;
         }
 
         public async Task<List<ProcessedData>?> GetAllUserProcessedData(Guid userID)
         {
-            List<ProcessedData>? processedDatas = await context.ProccesedDatas
+            List<ProcessedData>? processedDatas;
+
+            try
+            {
+                processedDatas = await context.ProccesedDatas
                 .Where(p => p.UserId == userID)
                 .OrderBy(p => p.CreatedAt)
                 .ToListAsync();
-            return processedDatas;
+                return processedDatas;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Ошибка при получении всех обработок пользователя. UserId: {UserId}", userID);
+                return null;
+            }
         }
 
         public async Task<ProcessedData?> GetProcessDataByIdAsync(Guid processId)
         {
-            ProcessedData? data = await context.ProccesedDatas.FirstOrDefaultAsync(pd => pd.Id == processId);
-            return data;
+            ProcessedData? data;
+            try
+            {
+                data = await context.ProccesedDatas.FirstOrDefaultAsync(pd => pd.Id == processId);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Ошибка получения данных об обработке по айди обработки. ProcessId: {ProcessId}", processId);
+                return null;
+            }
         }
         public async Task<(bool Sucess, string? message)> ChangeProcessDataAsync(ProcessStatus status, string? resultData,
             string? imageData, TimeSpan? processingTime, Guid processId)
@@ -55,7 +76,8 @@ namespace WebBackend.Repositories
             }
             catch (Exception ex)
             {
-                return (false, $"Произошлая ошибка");
+                logger.LogError(ex, "Ошибка при изменении данных обработки. ProcessId: {ProcessId}", processId);
+                return (false, $"Ошибка при изменении данных обработки");
             }
         }
         public async Task<(bool Sucess, string? message)> PostProcessDataAsync(ProcessedData processedData)
@@ -68,6 +90,7 @@ namespace WebBackend.Repositories
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при сохранении данных в базу данных");
                 return (false, "Ошибка при сохранении данных в базу данных");
             }
         }

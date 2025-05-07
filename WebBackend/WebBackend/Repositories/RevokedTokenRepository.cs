@@ -7,23 +7,26 @@ namespace WebBackend.Repositories
 {
     public class RevokedTokenRepository : IRevokedTokenRepository
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext context;
+        private readonly ILogger<RevokedTokenRepository> logger;
 
-        public RevokedTokenRepository(AppDbContext context)
+        public RevokedTokenRepository(AppDbContext context, ILogger<RevokedTokenRepository> logger)
         {
-            _context = context;
+            this.context = context;
+            this.logger = logger;
         }
 
         public async Task<bool> IsTokenRevokedAsync(string token)
         {
             try
             {
-                return await _context.RevokedTokens
+                return await context.RevokedTokens
                     .AsNoTracking()
                     .AnyAsync(rt => rt.Token == token);
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при проверке отозванного JWT токена. JWTToken: {JWTToken}", token);
                 return true;
             }
         }
@@ -32,7 +35,7 @@ namespace WebBackend.Repositories
         {
             try
             {
-                bool alreadyRevoked = await _context.RevokedTokens
+                bool alreadyRevoked = await context.RevokedTokens
                     .AnyAsync(rt => rt.Token == token);
 
                 if (alreadyRevoked)
@@ -47,13 +50,14 @@ namespace WebBackend.Repositories
                     RevokedAt = DateTime.UtcNow
                 };
 
-                await _context.RevokedTokens.AddAsync(revokedToken);
-                await _context.SaveChangesAsync();
+                await context.RevokedTokens.AddAsync(revokedToken);
+                await context.SaveChangesAsync();
 
                 return (true, null);
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при отзыве JWT токена. JWTToken: {JWTToken}", token);
                 return (false, $"Ошибка при отзыве токена: {ex.Message}");
             }
         }

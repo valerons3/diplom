@@ -10,9 +10,11 @@ namespace WebBackend.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly AppDbContext context;
-        public UserRepository(AppDbContext context)
+        private readonly ILogger<UserRepository> logger;
+        public UserRepository(AppDbContext context, ILogger<UserRepository> logger)
         {
             this.context = context;
+            this.logger = logger;
         }
 
         public async Task<(bool Success, string? message)> CheckUserExistsAsync(string email)
@@ -31,6 +33,7 @@ namespace WebBackend.Repositories
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при проверке существования пользователя. Email: {Email}", email);
                 return (false, null);
             }
         }
@@ -61,6 +64,7 @@ namespace WebBackend.Repositories
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при получении информации о пользователе. UserId: {UserId}", id);
                 return null;
             }
         }
@@ -75,20 +79,39 @@ namespace WebBackend.Repositories
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при регистрации пользователя");
                 return (false, "Ошибка при регистрации пользователя");
             }
         }
 
         public async Task<User?> GetEntityUserByEmailAsync(string email)
         {
-            User? user = await context.Users.Include(u => u.UserRefreshToken).FirstOrDefaultAsync(u => u.Email == email);
-            return user;
+            User? user;
+            try
+            {
+                user = await context.Users.Include(u => u.UserRefreshToken).FirstOrDefaultAsync(u => u.Email == email);
+                return user;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Ошибка при получении Entity сущности пользователя по email. Email: {Email}", email);
+                return null;
+            }
         }
 
         public async Task<User?> GetEntityUserByIdAsync(Guid id)
         {
-            User? user = await context.Users.Include(u => u.UserRefreshToken).FirstOrDefaultAsync(u => u.Id == id);
-            return user;
+            User? user;
+            try
+            {
+                user = await context.Users.Include(u => u.UserRefreshToken).FirstOrDefaultAsync(u => u.Id == id);
+                return user;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Ошибка при получении Entity сущности пользователя по айди. UserId: {UserId}", id);
+                return null;
+            }
         }
     }
 }

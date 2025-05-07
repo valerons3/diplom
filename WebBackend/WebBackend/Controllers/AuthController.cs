@@ -123,7 +123,6 @@ namespace WebBackend.Controllers
                     return StatusCode(500, new { message = result.Message });
                 }
                 LoginCounter.Inc();
-                logger.LogInformation("Попытка похавать говно", loginData.Email);
                 return Ok(new { JWT = jwtToken, Refresh = refreshToken });
             }
             else
@@ -133,7 +132,6 @@ namespace WebBackend.Controllers
                 if (!resultChangeRefresh.Success) { return StatusCode(500, new { message = resultChangeRefresh.Message });
                 }
                 LoginCounter.Inc();
-                logger.LogInformation("Попытка похавать говно", loginData.Email);
                 return Ok(new { JWT = jwtToken, Refresh = refreshToken });
             }
         }

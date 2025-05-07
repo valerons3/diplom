@@ -12,10 +12,11 @@ using WebBackend.Configurations;
 public class RabbitProducerService : IRabbitProducerService
 {
     private readonly RabbitmqSettings settings;
-
-    public RabbitProducerService(IOptions<RabbitmqSettings> settings)
+    private readonly ILogger<RabbitProducerService> logger;
+    public RabbitProducerService(IOptions<RabbitmqSettings> settings, ILogger<RabbitProducerService> logger)
     {
         this.settings = settings.Value;
+        this.logger = logger;
     }
 
     public (bool Success, string? Message) Publish(RabbitData data)
@@ -62,6 +63,7 @@ public class RabbitProducerService : IRabbitProducerService
         }
         catch (Exception ex)
         {
+            logger.LogError(ex, "Ошибка при публикации данных в очередь");
             return (false, $"Ошибка при публикации данных в очередь");
         }
     }
