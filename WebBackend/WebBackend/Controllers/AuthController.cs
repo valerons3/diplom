@@ -9,6 +9,7 @@ using WebBackend.Models.Entity;
 using WebBackend.Models.Enums;
 using WebBackend.Repositories.Interfaces;
 using WebBackend.Services.Interfaces;
+using Prometheus;
 
 namespace WebBackend.Controllers
 {
@@ -17,6 +18,13 @@ namespace WebBackend.Controllers
     [Authorize]
     public class AuthController : ControllerBase
     {
+
+        private static readonly Counter RegistrationCounter =
+            Metrics.CreateCounter("app_user_registration_total", "Количество регистраций пользователей");
+
+        private static readonly Counter LoginCounter =
+            Metrics.CreateCounter("app_user_login_total", "Количество входов пользователей");
+
         private readonly IRedisService redisService;
         private readonly ITokenService tokenService;
         private readonly IEmailService emailService;
@@ -25,10 +33,11 @@ namespace WebBackend.Controllers
         private readonly IPasswordService passwordService;
         private readonly IRoleRepository roleRepository;
         private readonly IRevokedTokenRepository revokedTokenRepository;
+        private readonly ILogger<AuthController> logger;
         public AuthController(IRedisService redisService, ITokenService tokenService, IEmailService emailService,
             IRefreshTokenRepository refreshTokenRepository, IUserRepository userRepository,
             IPasswordService passwordService, IRoleRepository roleRepository,
-            IRevokedTokenRepository revokedTokenRepository)
+            IRevokedTokenRepository revokedTokenRepository, ILogger<AuthController> logger)
         {
             this.redisService = redisService;
             this.tokenService = tokenService;
@@ -38,6 +47,7 @@ namespace WebBackend.Controllers
             this.passwordService = passwordService;
             this.roleRepository = roleRepository;
             this.revokedTokenRepository = revokedTokenRepository;
+            this.logger = logger;
         }
 
         [HttpPost("refresh-jwt")]
@@ -112,13 +122,18 @@ namespace WebBackend.Controllers
                 {
                     return StatusCode(500, new { message = result.Message });
                 }
+                LoginCounter.Inc();
+                logger.LogInformation("Попытка похавать говно", loginData.Email);
                 return Ok(new { JWT = jwtToken, Refresh = refreshToken });
             }
             else
             {
                 var resultChangeRefresh =
                     await refreshTokenRepository.ChangeRefreshTokenByUserIdAsync(user.Id, refreshToken);
-                if (!resultChangeRefresh.Success) { return StatusCode(500, new { message = resultChangeRefresh.Message }); }
+                if (!resultChangeRefresh.Success) { return StatusCode(500, new { message = resultChangeRefresh.Message });
+                }
+                LoginCounter.Inc();
+                logger.LogInformation("Попытка похавать говно", loginData.Email);
                 return Ok(new { JWT = jwtToken, Refresh = refreshToken });
             }
         }
@@ -174,7 +189,7 @@ namespace WebBackend.Controllers
                     return BadRequest(new { message = "Не верный код подтверждения" });
                 case EmailVerificationStatus.CodeValid:
                     var result = await PostUserAsync(confirmData.Token);
-                    if (result.Success) { return Ok(new { JWT = result.jwtToken, Refresh = result.refreshToken }); }
+                    if (result.Success) { RegistrationCounter.Inc(); return Ok(new { JWT = result.jwtToken, Refresh = result.refreshToken }); }
                     else { return StatusCode(500, new { result.message }); }
                 default:
                     return StatusCode(500, new { message = "Неизвестная ошибка" });

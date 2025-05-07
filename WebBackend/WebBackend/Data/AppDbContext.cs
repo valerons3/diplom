@@ -33,10 +33,6 @@ namespace WebBackend.Data
                 .WithOne()
                 .HasForeignKey(s => s.UserId);
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.UserStatistics)
-                .WithOne(s => s.User)
-                .HasForeignKey(s => s.UserId);
 
 
             // Настройка ProcessedDatas
@@ -48,7 +44,7 @@ namespace WebBackend.Data
             modelBuilder.Entity<ProcessedData>()
                 .HasOne(pr => pr.Rating)
                 .WithOne(r => r.ProccesedData)
-                .HasForeignKey<ProcessedData>(pr => pr.RatingId);
+                .HasForeignKey<Rating>(r => r.ProcessedDataId);
 
             modelBuilder.Entity<ProcessedData>()
                 .Property(p => p.Status)
@@ -73,11 +69,6 @@ namespace WebBackend.Data
                 .WithOne(u => u.UserRole)
                 .HasForeignKey(u => u.RoleId);
 
-            // Настройка Statistics
-            modelBuilder.Entity<Statistic>()
-                .HasOne(s => s.User)
-                .WithMany(u => u.UserStatistics)
-                .HasForeignKey(s => s.UserId);
 
             modelBuilder.Entity<Role>().HasData(
                  new Role { Id = new Guid("f47c7b39-dde9-49c5-87b0-c1a3d20932e0"), Name = "User" },

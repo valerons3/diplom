@@ -3,9 +3,8 @@
     public class Statistic
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
-        public DateTime Date { get; set; } = DateTime.UtcNow;
+        public string ActionType { get; set; } = null!;
+        public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
-        public User? User { get; set; }
     }
 }

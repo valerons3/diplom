@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Prometheus;
 using System.IdentityModel.Tokens.Jwt;
 using WebBackend.Configurations;
 using WebBackend.Models.DTO;
@@ -17,6 +18,9 @@ namespace WebBackend.Controllers
     [Authorize]
     public class ProcessController : ControllerBase
     {
+        private static readonly Counter FileUploadCounter =
+            Metrics.CreateCounter("app_file_upload_total", "Количество загруженных файлов на обработку");
+
         private readonly IFileService fileService;
         private readonly ITokenService tokenService;
         private readonly IProcessedDataRepository processedDataRepository;
@@ -61,6 +65,7 @@ namespace WebBackend.Controllers
 
             var result = data.Select(p => new ProcessDataDTO
             {
+                Id = p.Id,
                 Status = p.Status,
                 InputData = p.InputData,
                 ResultData = p.ResultData,
@@ -86,6 +91,7 @@ namespace WebBackend.Controllers
 
             ProcessDataDTO dataDTO = new ProcessDataDTO()
             {
+                Id = id,
                 Status = data.Status,
                 InputData = data.InputData,
                 ResultData = data.ResultData,
@@ -173,7 +179,7 @@ namespace WebBackend.Controllers
             {
                 return StatusCode(500, new { message = publishResult.Message });
             }
-
+            FileUploadCounter.Inc();
             return Ok(new { message = "Данные отправлены на обработку", id = processId });
         }
     }

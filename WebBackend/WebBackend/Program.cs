@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Prometheus;
 using StackExchange.Redis;
 using System.Reflection;
 using System.Text;
@@ -15,6 +16,8 @@ using WebBackend.Repositories.Interfaces;
 using WebBackend.Services;
 using WebBackend.Services.Interfaces;
 using WebBackend.Swager;
+using Serilog;
+using Microsoft.Extensions.Configuration;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -152,7 +155,20 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRevokedTokenRepository, RevokedTokenRepository>();
 
 
+// Serilog
+builder.Host.UseSerilog((context, services, configuration) =>
+{
+    configuration
+        .ReadFrom.Configuration(context.Configuration)
+        .ReadFrom.Services(services);
+});
+
+
 var app = builder.Build();
+
+// Metrics
+app.UseHttpMetrics();
+app.MapMetrics();
 
 
 // Configure
@@ -201,4 +217,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+try
+{
+    Log.Information("Starting up");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application start-up failed");
+}
+finally
+{
+    Log.CloseAndFlush();
+}

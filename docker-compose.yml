@@ -9,11 +9,12 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     networks:
-      - diplomnetwork
+      - servicenetwork
     depends_on:
       - postgres
       - redis
       - rabbitmq
+      - seq
     restart: always
   microservice:
     container_name: microservice
@@ -21,7 +22,7 @@ services:
       context: ./NeiroBackend
       dockerfile: DOCKERFILE
     networks:
-      - diplomnetwork
+      - servicenetwork
     depends_on:
       - rabbitmq
     restart: always
@@ -34,7 +35,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     networks:
-      - diplomnetwork
+      - servicenetwork
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -43,7 +44,7 @@ services:
     container_name: redis
     restart: always
     networks:
-      - diplomnetwork
+      - servicenetwork
     volumes:
       - redis_data:/data
     command: ["redis-server", "--appendonly", "yes"]
@@ -53,18 +54,58 @@ services:
     container_name: rabbitmq
     restart: always
     networks:
-      - diplomnetwork 
+      - servicenetwork 
     environment:
       RABBITMQ_DEFAULT_USER: user
       RABBITMQ_DEFAULT_PASS: password
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
 
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      - servicenetwork
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - servicenetwork
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+  
+  seq:
+    image: datalust/seq
+    container_name: seq
+    ports:
+      - "5341:80"
+    environment:
+      - ACCEPT_EULA=Y
+    networks:
+      - servicenetwork
+    volumes:
+      - seq_data:/data
+
 volumes:
   postgres_data:
   redis_data:
   rabbitmq_data:
+  prometheus_data:
+  grafana_data:
+  seq_data:
 
 networks:
-  diplomnetwork:  
+  servicenetwork:  
     driver: bridge

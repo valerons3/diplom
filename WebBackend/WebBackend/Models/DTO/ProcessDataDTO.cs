@@ -4,6 +4,7 @@ namespace WebBackend.Models.DTO
 {
     public class ProcessDataDTO
     {
+        public Guid Id { get; set; }
         public ProcessStatus Status { get; set; }
         public string InputData { get; set; } = string.Empty;
         public string? ResultData { get; set; } = null!;
