@@ -1,4 +1,5 @@
-﻿using WebBackend.Services.Interfaces;
+﻿using WebBackend.Models.DTO;
+using WebBackend.Services.Interfaces;
 
 namespace WebBackend.Services
 {
@@ -6,9 +7,42 @@ namespace WebBackend.Services
     {
         private readonly string uploadPath = "Uploads";
         private readonly ILogger<FileService> logger;
+        private readonly HttpClient httpClient;
         public FileService(ILogger<FileService> logger)
         {
             this.logger = logger;
+            httpClient = new HttpClient();
+        }
+
+        public async Task<(bool Success, string? FilePath, string? ImagePath)> DownloadAndSaveResultFilesAsync(RabbitData rabbitData)
+        {
+            var responseFile = await httpClient.GetAsync(rabbitData.DownloadLink);
+            var responseImage = await httpClient.GetAsync(rabbitData.ImageDownloadLink);
+
+            if (!responseFile.IsSuccessStatusCode || !responseImage.IsSuccessStatusCode)
+            {
+                logger.LogError("Ошибка при скачивании файлов результата. FileResponse: {FileResponse}, ImageResponse: " +
+                    "{ImageResponse}", responseFile.StatusCode, responseImage.StatusCode);
+                return (false, null, null);
+            }
+
+
+            var imageBytes = await responseImage.Content.ReadAsByteArrayAsync();
+            var imageName = rabbitData.ImageDownloadLink.Split("fileName=")[^1];
+            var fileBytes = await responseFile.Content.ReadAsByteArrayAsync();
+            var fileName = rabbitData.DownloadLink.Split("fileName=")[^1];
+
+            var resultSaveImage = await SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID,
+                imageBytes, imageName);
+            var resultSaveFile = await SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID, 
+                fileBytes, fileName);
+
+            if (!resultSaveFile.Sucess || !resultSaveImage.Sucess)
+            {
+                return (false, null, null);
+            }
+
+            return (true, resultSaveFile.Message, resultSaveImage.Message);
         }
 
         public async Task<(bool Sucess, string? Message)> SaveResultFileAsync(Guid userId, Guid processId,

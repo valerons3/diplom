@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebBackend.Data;
+using WebBackend.Models.DTO;
 using WebBackend.Models.Entity;
 using WebBackend.Models.Enums;
 using WebBackend.Repositories.Interfaces;
@@ -92,6 +93,61 @@ namespace WebBackend.Repositories
             {
                 logger.LogError(ex, "Ошибка при сохранении данных в базу данных");
                 return (false, "Ошибка при сохранении данных в базу данных");
+            }
+        }
+
+        public async Task<(bool Success, string? Message)> ChangeDataIfSuccessAsync(RabbitData data, string filePath,
+            string imagePath)
+        {
+            try
+            {
+                var existingProcess = await context.ProccesedDatas
+                    .FirstOrDefaultAsync(p => p.Id == data.ProcessID);
+
+                if (existingProcess == null)
+                {
+                    return (false, "Данных о процессе не существует");
+                }
+
+                existingProcess.Status = data.Status;
+                existingProcess.ProcessingTime = data.ProcessingTime;
+                existingProcess.ResultData = filePath;
+                existingProcess.PhaseImage = imagePath;
+
+                context.ProccesedDatas.Update(existingProcess);
+                await context.SaveChangesAsync();
+                return (true, "Данные обновлены");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Ошибка при обновлении данных о процессе. ProcessId: {ProcessId}", data.ProcessID);
+                return (false, "Ошибка при обновлении данных о процессе");
+            }
+        }
+
+        public async Task<(bool Success, string? Messsage)> ChangeDataIfNotSuccess(RabbitData data)
+        {
+            try
+            {
+                var existingProcess = await context.ProccesedDatas
+                    .FirstOrDefaultAsync(p => p.Id == data.ProcessID);
+
+                if (existingProcess == null)
+                {
+                    return (false, "Данных о процессе не существует");
+                }
+
+                existingProcess.Status = data.Status;
+                existingProcess.CommentResult = "Ошибка при обработке данных";
+
+                context.ProccesedDatas.Update(existingProcess);
+                await context.SaveChangesAsync();
+                return (true, "Данные обновлены");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Ошибка при обновлении данных о процессе. ProcessId: {ProcessId}", data.ProcessID);
+                return (false, "Ошибка при обновлении данных о процессе");
             }
         }
     }

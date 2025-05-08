@@ -20,15 +20,15 @@ public class RabbitConsumerService : BackgroundService
 {
     private readonly RabbitmqSettings settings;
     private readonly IServiceScopeFactory serviceScopeFactory;
-    private readonly HttpClient httpClient;
     private IConnection connection;
     private IModel channel;
+    private readonly ILogger<RabbitConsumerService> logger;
 
-    public RabbitConsumerService(IOptions<RabbitmqSettings> settings, IServiceScopeFactory serviceScopeFactory)
+    public RabbitConsumerService(IOptions<RabbitmqSettings> settings, IServiceScopeFactory serviceScopeFactory, ILogger<RabbitConsumerService> logger)
     {
         this.settings = settings.Value;
         this.serviceScopeFactory = serviceScopeFactory;
-        httpClient = new HttpClient();
+        this.logger = logger;
     }
 
     private void InitializeRabbitMQ()
@@ -64,18 +64,38 @@ public class RabbitConsumerService : BackgroundService
             try
             {
                 var rabbitData = JsonSerializer.Deserialize<RabbitData>(message);
-                if (rabbitData == null) throw new Exception("Ошибка десериализации JSON");
+                if (rabbitData == null)
+                {
+                    logger.LogError("Ошибка десериализации JSON-сообщения из очереди");
+                    return;
+                }
+
+                using var scope = serviceScopeFactory.CreateScope();
+                var fileService = scope.ServiceProvider.GetRequiredService<IFileService>();
+                var dataRepository = scope.ServiceProvider.GetRequiredService<IProcessedDataRepository>();
 
                 if (rabbitData.Status == ProcessStatus.Failed)
                 {
-                    await UpdateProcessDataAsync(rabbitData, null, null);
+                    var resultUpdateData = await dataRepository.ChangeDataIfNotSuccess(rabbitData);
+                    if (!resultUpdateData.Success)
+                    {
+                        return;
+                    }
                 }
                 else
                 {
-                    var resultDownload = await DownloadFilesAsync(rabbitData);
-                    if (resultDownload.filePath != null && resultDownload.imagePath != null)
+                    var resultDownloadSave = await fileService.DownloadAndSaveResultFilesAsync(rabbitData);
+
+                    if (!resultDownloadSave.Success)
                     {
-                        await UpdateProcessDataAsync(rabbitData, resultDownload.filePath, resultDownload.imagePath);
+                        return;
+                    }
+                    
+                    var resultUpdateData = await dataRepository.ChangeDataIfSuccessAsync(rabbitData, 
+                        resultDownloadSave.FilePath, resultDownloadSave.ImagePath);
+                    if (!resultUpdateData.Success)
+                    {
+                        return;
                     }
                 }
           
@@ -83,52 +103,12 @@ public class RabbitConsumerService : BackgroundService
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка обработки сообщения из очереди");
                 Console.WriteLine($"Ошибка обработки сообщения: {ex.Message}");
             }
         };
 
         channel.BasicConsume(queue: settings.ReceiverQueue, autoAck: false, consumer: consumer);
-    }
-
-    private async Task<(string? filePath, string? imagePath)> DownloadFilesAsync(RabbitData rabbitData)
-    {
-        var responseFile = await httpClient.GetAsync(rabbitData.DownloadLink);
-        var responseImage = await httpClient.GetAsync(rabbitData.ImageDownloadLink);
-        if (!responseFile.IsSuccessStatusCode || !responseImage.IsSuccessStatusCode)
-        {
-            Console.WriteLine($"Ошибка скачивания файла: {responseFile.StatusCode}");
-            return (null, null);
-        }
-
-        var imageBytes = await responseImage.Content.ReadAsByteArrayAsync();
-        var imageName = rabbitData.ImageDownloadLink.Split("fileName=")[^1];
-        var fileBytes = await responseFile.Content.ReadAsByteArrayAsync();
-        var fileName = rabbitData.DownloadLink.Split("fileName=")[^1];
-
-        using var scope = serviceScopeFactory.CreateScope();
-        var fileService = scope.ServiceProvider.GetRequiredService<IFileService>();
-
-        var imageSaveResult = await fileService.SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID, 
-            imageBytes, imageName);
-        var fileSaveResult = await fileService.SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID,
-            fileBytes, fileName);
-
-        return (fileSaveResult.Message, imageSaveResult.Message);
-    }
-
-    private async Task UpdateProcessDataAsync(RabbitData rabbitData, string? filePath, string? imagePath)
-    {
-        using var scope = serviceScopeFactory.CreateScope();
-        var dataRepository = scope.ServiceProvider.GetRequiredService<IProcessedDataRepository>();
-
-        var resultChangeData = await dataRepository.ChangeProcessDataAsync(
-            rabbitData.Status, filePath, imagePath, rabbitData.ProcessingTime, rabbitData.ProcessID
-        );
-
-        if (!resultChangeData.Sucess)
-        {
-            Console.WriteLine($"Ошибка обновления данных: {resultChangeData.message}");
-        }
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -145,6 +125,5 @@ public class RabbitConsumerService : BackgroundService
         connection?.Close();
         channel?.Dispose();
         connection?.Dispose();
-        httpClient.Dispose();
     }
 }
