@@ -16,7 +16,12 @@ namespace WebBackend.Controllers
             this.ratingRepository = ratingRepository;
         }
 
-
+        /// <summary>
+        /// Получение оценки по id процесса
+        /// </summary>
+        /// <returns>Оценка</returns>
+        /// <response code="400">Проблемы с JWT/не указан id. Ответ: JSON { "message" = message }</response>
+        /// <response code="200">Оценка обработки</response>
         [HttpGet]
         public async Task<IActionResult> GetRatingAsync([FromQuery]Guid processId)
         {
@@ -35,6 +40,12 @@ namespace WebBackend.Controllers
             return Ok(rating);
         }
 
+        /// <summary>
+        /// Оставление оценки по обработки. ОБЯЗАТЕЛЬНО оценка не меньше 1 и не больше 5
+        /// </summary>
+        /// <returns>Метаданные</returns>
+        /// <response code="400">Не верные данные. Ответ: JSON { "message" = message }</response>
+        /// <response code="200">Оценка оставлена. Ответ: JSON { "message" = message }</response>
         [HttpPost]
         public async Task<IActionResult> PostRatingAsync(RatingDTO ratingDTO)
         {

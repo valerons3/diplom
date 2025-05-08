@@ -50,6 +50,17 @@ namespace WebBackend.Controllers
             this.logger = logger;
         }
 
+        /// <summary>
+        /// Нужен будет в дальнейшем. Это если запрос отправился с истёкшим JWT. С помощью Refresh токена обновляется.
+        /// Нужно передать в заголовках JWT токен и Refresh токен.
+        /// Формат заголовка JWT токена. 'Authorization': 'Bearer СамТокен'
+        /// формат заголовка Refresh токена. 'Refresh-Token': Сам токен
+        /// </summary>
+        /// <returns>Новый JWT токен</returns>
+        /// <response code="400">Один из токенов не передан или не правильный Refresh токен. Вернётся JSON (message = сообщение)</response>
+        /// <response code="401">Или не верный id в JWT токене или он не валидный, или Refresh токен истёк. Вернётся JSON (message = сообщение)</response>
+        /// <response code="404">Токен не найден или пользователь не найден. Вернётся JSON (JWT, Refresh)</response>
+        /// <response code="200">Новый JWT токен. Вернётся JSON (JWT = токен)</response>
         [HttpPost("refresh-jwt")]
         public async Task<IActionResult> RefreshJwtTokenAsync()
         {
@@ -92,6 +103,14 @@ namespace WebBackend.Controllers
             return Ok(new { JWT = newJWTToken });
         }
 
+
+        /// <summary>
+        /// Логин пользователя
+        /// </summary>
+        /// <returns>JWT, Refresh токены</returns>
+        /// <response code="400">Не верный email или пароль. Ответ: JSON { "message" = message } </response>
+        /// <response code="500">Сервер гг. Ответ: JSON { "message" = message } </response>
+        /// <response code="200">Новые JWT и Refresh токены. Ответ: JSON { "JWT" = token, "Refresh" = token }</response>
         [HttpPost("login")]
         [AllowAnonymous]
         public async Task<IActionResult> LoginUserAsync([FromBody] Login loginData)
@@ -136,6 +155,15 @@ namespace WebBackend.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Выход пользователя
+        /// Нужно передать JWT
+        /// </summary>
+        /// <returns>Метаданные</returns>
+        /// <response code="400">Проблемы с JWT (не передан/не валиден). Ответ: JSON { "message" = message } </response>
+        /// <response code="500">Сервер гг. Ответ: JSON { "message" = message } </response>
+        /// <response code="200">Выход успешный. Ответ: JSON { "success" = bool, "message" = message, "timestamp" = datetime }</response>
         [HttpPost("exit")]
         public async Task<IActionResult> ExitUserAsync()
         {
@@ -172,7 +200,14 @@ namespace WebBackend.Controllers
             });
         }
 
-
+        /// <summary>
+        /// Подтверждение кода
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="404">Код истёк. Ответ: JSON { "message" = message } </response>
+        /// <response code="400">Не верный код. Ответ: JSON { "message" = message } </response>
+        /// <response code="500">Сервер гг. Ответ: JSON { "message" = message }</response>
+        /// <response code="200">Успешная регистрация. Ответ: JSON { "JWT" = token, "Refresh" = token }</response>
         [HttpPost("confirm-code")]
         [AllowAnonymous]
         public async Task<IActionResult> ConfirmCodeAsync([FromBody] ConfirmCode confirmData)
@@ -220,6 +255,13 @@ namespace WebBackend.Controllers
             return (true, null, jwtToken, refreshToken);
         }
 
+        /// <summary>
+        /// Регистрация пользователя ("User", "Admin")
+        /// </summary>
+        /// <returns>Токен сессии</returns>
+        /// <response code="400">Не правильное название роли/пользователь уже существует/не валидный email. Ответ: JSON { "message" = message } </response>
+        /// <response code="500">Сервер гг. Ответ: JSON { "message" = message }</response>
+        /// <response code="200">Пользователю отправлен код. Ответ: JSON { "sessionToken" = token}</response>
         [HttpPost("register")]
         [AllowAnonymous]
         public async Task<IActionResult> RegisterUserAsync(UserDTO userDTO)

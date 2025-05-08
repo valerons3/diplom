@@ -38,6 +38,13 @@ namespace WebBackend.Controllers
             this.downloadURL = downloadURL.Value;
         }
 
+        /// <summary>
+        /// Все обработки пользователя. Берётся по JWT
+        /// </summary>
+        /// <returns>Список обработок</returns>
+        /// <response code="400">Проблемы с JWT. Ответ: JSON { "message" = message }</response>
+        /// <response code="404">Список обработок не найден. Ответ: JSON { "message" = message }</response>
+        /// <response code="200">Список обработок. Возвращается вместе с Id обработки</response>
         [HttpGet("userprocessdata")]
         public async Task<IActionResult> GetAllUserProcessData()
         {
@@ -80,6 +87,13 @@ namespace WebBackend.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Информация по одной обработке.
+        /// Нужно передать JWT
+        /// </summary>
+        /// <returns>Информация об обработке</returns>
+        /// <response code="404">Информация обработки не найдена. Ответ: JSON { "message" = message }</response>
+        /// <response code="200">Информация об обработке. Возвращается вместе с Id обработки</response>
         [HttpGet("processdata")]
         public async Task<IActionResult> GetProcessInfoByIdAsync([FromQuery] Guid id)
         {
@@ -106,6 +120,14 @@ namespace WebBackend.Controllers
             return Ok(dataDTO);
         }
 
+        /// <summary>
+        /// Загрузка файла на обработку. В строке запроса указать название метода обработки
+        /// 'neural'. Другой способ сокомандник зажал
+        /// </summary>
+        /// <returns>Метаданные</returns>
+        /// <response code="400">Проблемы с JWT/не верное название метода/файл не передан. Ответ: JSON { "message" = message }</response>
+        /// <response code="500">Серверу гг. Ответ: JSON { "message" = message }</response>
+        /// <response code="200">Данные отправились на обработку. Ответ: JSON { "message" = message, "id" = id }</response>
         [HttpPost("upload")]
         public async Task<IActionResult> UploadFile(IFormFile file, [FromQuery] string method)
         {
