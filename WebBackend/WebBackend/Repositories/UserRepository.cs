@@ -38,7 +38,7 @@ namespace WebBackend.Repositories
             }
         }
 
-        public async Task<UserDTO?> GetUserInfoByIdAsync(Guid id)
+        public async Task<Register?> GetUserInfoByIdAsync(Guid id)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace WebBackend.Repositories
                     return null;
                 }
 
-                return new UserDTO
+                return new Register
                 {
                     Email = user.Email,
                     FirstName = user.FirstName,
@@ -96,6 +96,69 @@ namespace WebBackend.Repositories
             {
                 logger.LogError(ex, "Ошибка при получении Entity сущности пользователя по email. Email: {Email}", email);
                 return null;
+            }
+        }
+
+        public async Task<UserDTO> GetUserByEmailAsync(string email)
+        {
+            try
+            {
+                User? user = await context.Users.FirstOrDefaultAsync(u => u.Email == email);
+                if (user == null) return null;
+
+                UserDTO userDto = new()
+                {
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                };
+                
+                return userDto;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Ошибка при получении DTO сущности пользователя по email. Email: {Email}", email);
+                return null;
+            }
+        }
+
+        public async Task<UserDTO> GetUserByIdAsync(Guid id)
+        {
+            try
+            {
+                User? user = await context.Users.FirstOrDefaultAsync(u => u.Id == id);
+                if (user == null) return null;
+
+                UserDTO userDto = new()
+                {
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                };
+                
+                return userDto;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Ошибка при получении DTO сущности пользователя по id. Id: {Id}", id);
+                return null;
+            }
+        }
+
+        public async Task<(bool Success, string? message)> UpdateUserAsync(User user)
+        {
+            try
+            {
+                context.Users.Update(user);
+                await context.SaveChangesAsync();
+                return (true, null);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Ошибка при обновлении данных о пользователе. Id: {Id}, Email: {Email}" +
+                                    "FirstName: {FirstName}, LastName: {LastName}",
+                    user.Id, user.Email, user.FirstName, user.LastName);
+                return (false, "Ошибка при обновлении данных о пользователе");
             }
         }
 
