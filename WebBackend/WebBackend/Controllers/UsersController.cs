@@ -20,7 +20,15 @@ public class UsersController : Controller
         this.userRepository = userRepository;
         this.tokenService = tokenService;
     }
-
+    
+    /// <summary>
+    /// Изменение FirstName и LastName пользователя
+    /// </summary>
+    /// <returns>Код HTTP</returns>
+    /// <response code="400">Проблемы с JWT (не передан/не валиден). Ответ: JSON { "message" = message } </response>
+    /// <response code="500">Сервер гг. Ответ: JSON { "message" = message } </response>
+    /// <response code="404">Пользователь не найден. Ответ: JSON { "message" = message}</response>
+    /// <response code="200">Данные обновлены. Ответ: JSON { "message" = message}</response>
     [HttpPatch]
     public async Task<IActionResult> ChangeUserDataAsync([FromBody]UserShortDTO userShortDTO)
     {
@@ -58,7 +66,13 @@ public class UsersController : Controller
 
         return Ok(new { message = "Данные успешно обновлены" });
     }
-
+    
+    /// <summary>
+    /// Получение информации о пользователе по email
+    /// </summary>
+    /// <returns>Код HTTP</returns>
+    /// <response code="404">Пользователь не найден. Ответ: JSON { "message" = message } </response>
+    /// <response code="200">Данные пользователя</response>
     [HttpGet("emailinfo")]
     public async Task<IActionResult> GetUserByEmailAsync([FromQuery] string email)
     {
@@ -70,7 +84,15 @@ public class UsersController : Controller
 
         return Ok(user);
     }
-
+    
+    /// <summary>
+    /// Получение информации о пользователе по JWT
+    /// Обязательно передать JWT в заголовке { 'Authorization': 'Bearer token' }
+    /// </summary>
+    /// <returns>Код HTTP</returns>
+    /// <response code="400">Проблемы с JWT (не передан/не валиден). Ответ: JSON { "message" = message } </response>
+    /// <response code="404">Пользователь не найден. Ответ: JSON { "message" = message}</response>
+    /// <response code="200">Данные пользователя</response>
     [HttpGet("idinfo")]
     public async Task<IActionResult> GetUserByIdAsync()
     {
