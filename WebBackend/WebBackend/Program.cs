@@ -18,6 +18,7 @@ using WebBackend.Services.Interfaces;
 using WebBackend.Swager;
 using Serilog;
 using Microsoft.Extensions.Configuration;
+using WebBackend.Middleware;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -213,6 +214,8 @@ app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
+app.UseRevokedTokenMiddleware();
 
 app.UseAuthorization();
 

@@ -264,16 +264,16 @@ namespace WebBackend.Controllers
         /// <response code="200">Пользователю отправлен код. Ответ: JSON { "sessionToken" = token}</response>
         [HttpPost("register")]
         [AllowAnonymous]
-        public async Task<IActionResult> RegisterUserAsync(UserDTO userDTO)
+        public async Task<IActionResult> RegisterUserAsync(Register register)
         {
 
-            Guid? roleId = await roleRepository.GetIdRoleByNameAsync(userDTO.Role);
+            Guid? roleId = await roleRepository.GetIdRoleByNameAsync(register.Role);
             if (roleId == null)
             {
                 return BadRequest(new { message = "Такой роли не существует" });
             }
 
-            var existingUser = await userRepository.CheckUserExistsAsync(userDTO.Email);
+            var existingUser = await userRepository.CheckUserExistsAsync(register.Email);
             if (existingUser.Success)
             {
                 return BadRequest(new { existingUser.message });
@@ -282,7 +282,7 @@ namespace WebBackend.Controllers
             string token = tokenService.GenerateSessionToken();
             string code = tokenService.GenerateCode();
 
-            var codeSended = await emailService.SendEmailAsync(userDTO.Email, code);
+            var codeSended = await emailService.SendEmailAsync(register.Email, code);
             if (!codeSended.Success)
             {
                 return BadRequest(new
@@ -295,10 +295,10 @@ namespace WebBackend.Controllers
             User user = new User()
             {
                 Id = Guid.NewGuid(),
-                Email = userDTO.Email,
-                FirstName = userDTO.FirstName,
-                LastName = userDTO.LastName,
-                PasswordHash = passwordService.HashPassword(userDTO.Password),
+                Email = register.Email,
+                FirstName = register.FirstName,
+                LastName = register.LastName,
+                PasswordHash = passwordService.HashPassword(register.Password),
                 RoleId = roleId.Value
             };
             var userDataIsCached = await redisService.PostUserDataAsync(user, token, code);
