@@ -5,10 +5,8 @@ from app.api import app
 from app.config.config import CONFIG  
 
 async def main():
-    """Запуск FastAPI и RabbitMQ параллельно"""
     rabbit_task = asyncio.create_task(consume())
 
-    # Берем конфиг из файла
     fastapi_host = CONFIG["FastAPI"]["Host"]
     fastapi_port = CONFIG["FastAPI"]["Port"]
 
@@ -16,7 +14,6 @@ async def main():
     server = uvicorn.Server(config)
     fastapi_task = server.serve()
 
-    print(f"🚀 FastAPI запущен на http://{fastapi_host}:{fastapi_port}")
     
     await asyncio.gather(rabbit_task, fastapi_task)
 

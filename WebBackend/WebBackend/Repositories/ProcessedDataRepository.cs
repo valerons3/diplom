@@ -23,7 +23,7 @@ namespace WebBackend.Repositories
 
             try
             {
-                processedDatas = await context.ProccesedDatas
+                processedDatas = await context.ProcessedDatas
                 .Where(p => p.UserId == userID)
                 .OrderBy(p => p.CreatedAt)
                 .ToListAsync();
@@ -41,7 +41,7 @@ namespace WebBackend.Repositories
             ProcessedData? data;
             try
             {
-                data = await context.ProccesedDatas.FirstOrDefaultAsync(pd => pd.Id == processId);
+                data = await context.ProcessedDatas.FirstOrDefaultAsync(pd => pd.Id == processId);
                 return data;
             }
             catch (Exception ex)
@@ -55,7 +55,7 @@ namespace WebBackend.Repositories
         {
             try
             {
-                var existingProcessData = await context.ProccesedDatas.FirstOrDefaultAsync(pd => pd.Id == processId);
+                var existingProcessData = await context.ProcessedDatas.FirstOrDefaultAsync(pd => pd.Id == processId);
                 if (existingProcessData == null)
                 {
                     return (false, "Ошибка нахождения данных");
@@ -70,7 +70,7 @@ namespace WebBackend.Repositories
                     existingProcessData.CommentResult = "Ошибка при обработке данных";
                 }
 
-                context.ProccesedDatas.Update(existingProcessData);
+                context.ProcessedDatas.Update(existingProcessData);
                 await context.SaveChangesAsync();
 
                 return (true, "Данные обновлены");
@@ -85,7 +85,7 @@ namespace WebBackend.Repositories
         {
             try
             {
-                await context.ProccesedDatas.AddAsync(processedData);
+                await context.ProcessedDatas.AddAsync(processedData);
                 await context.SaveChangesAsync();
                 return (true, null);
             }
@@ -101,7 +101,7 @@ namespace WebBackend.Repositories
         {
             try
             {
-                var existingProcess = await context.ProccesedDatas
+                var existingProcess = await context.ProcessedDatas
                     .FirstOrDefaultAsync(p => p.Id == data.ProcessID);
 
                 if (existingProcess == null)
@@ -114,7 +114,7 @@ namespace WebBackend.Repositories
                 existingProcess.ResultData = filePath;
                 existingProcess.PhaseImage = imagePath;
 
-                context.ProccesedDatas.Update(existingProcess);
+                context.ProcessedDatas.Update(existingProcess);
                 await context.SaveChangesAsync();
                 return (true, "Данные обновлены");
             }
@@ -129,7 +129,7 @@ namespace WebBackend.Repositories
         {
             try
             {
-                var existingProcess = await context.ProccesedDatas
+                var existingProcess = await context.ProcessedDatas
                     .FirstOrDefaultAsync(p => p.Id == data.ProcessID);
 
                 if (existingProcess == null)
@@ -140,7 +140,7 @@ namespace WebBackend.Repositories
                 existingProcess.Status = data.Status;
                 existingProcess.CommentResult = "Ошибка при обработке данных";
 
-                context.ProccesedDatas.Update(existingProcess);
+                context.ProcessedDatas.Update(existingProcess);
                 await context.SaveChangesAsync();
                 return (true, "Данные обновлены");
             }

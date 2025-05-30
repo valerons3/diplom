@@ -68,7 +68,6 @@ async def process_message(message: aio_pika.IncomingMessage):
 
 
 async def consume():
-    """Основной процесс потребителя сообщений"""
     rabbit_config = CONFIG["RabbitMQ"]
     
     connection = await aio_pika.connect_robust(

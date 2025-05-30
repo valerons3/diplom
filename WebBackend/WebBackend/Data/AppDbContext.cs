@@ -8,7 +8,7 @@ namespace WebBackend.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         
         public DbSet<User> Users { get; set; }
-        public DbSet<ProcessedData> ProccesedDatas { get; set; }
+        public DbSet<ProcessedData> ProcessedDatas { get; set; }
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<RevokedToken> RevokedTokens { get; set; }

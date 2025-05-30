@@ -112,7 +112,11 @@ namespace WebBackend.Controllers
 
             if (file == null || file.Length == 0)
                 return BadRequest(new { message = "Файл не передан" });
-
+            
+            var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+            if (extension != ".mat")
+                return BadRequest(new { message = "Нужно загрузить файл расширения .mat" });
+            
             if (string.IsNullOrEmpty(method))
                 return BadRequest(new { message = "Необходимо передать название метода" });
             if (method != "neural" && method != "classical")

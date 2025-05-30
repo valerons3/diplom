@@ -202,11 +202,6 @@ app.UseStaticFiles(new StaticFileOptions
     ContentTypeProvider = provider
 });
 
-app.Use(async (context, next) =>
-{
-    context.Response.Headers["Cache-Control"] = "no-store";
-    await next();
-});
 
 // CORS
 app.UseCors("AllowAll");

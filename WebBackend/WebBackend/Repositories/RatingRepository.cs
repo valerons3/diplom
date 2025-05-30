@@ -45,7 +45,7 @@ namespace WebBackend.Repositories
             ProcessedData? process;
             try
             {
-                process = await context.ProccesedDatas.FindAsync(ratingDTO.ProcessId);
+                process = await context.ProcessedDatas.FindAsync(ratingDTO.ProcessId);
                 if (process == null)
                     return (false, "Процесс не найден");
 
@@ -64,7 +64,7 @@ namespace WebBackend.Repositories
                 process.RatingId = rating.Id;
 
                 await context.Ratings.AddAsync(rating);
-                context.ProccesedDatas.Update(process);
+                context.ProcessedDatas.Update(process);
                 await context.SaveChangesAsync();
 
                 return (true, "Оценка успешно оставлена");
