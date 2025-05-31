@@ -3,7 +3,7 @@ services:
     container_name: api
     build:
       context: ./WebBackend  
-      dockerfile: /DOCKERFILE
+      dockerfile: DOCKERFILE
     ports:
       - "5005:5005"
     environment:
