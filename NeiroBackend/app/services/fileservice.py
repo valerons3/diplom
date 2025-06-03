@@ -7,7 +7,7 @@ import ssl
 import scipy
 import numpy as np
 import scipy.io
-
+import matplotlib
 from matplotlib import pyplot as plt
 from urllib.parse import urlparse, parse_qs
 
@@ -56,10 +56,23 @@ async def WriteInputFile(userID, processID, fileName, content):
         await file.write(content)
     return fullPath
 
+def isColorbar(ax):
+         """Guesses if an Axes instance is home to a colorbar."""
+         if not ax.get_xticks() and not ax.get_yticks():
+             if not ax.get_xticklabels() and not ax.get_yticklabels():
+                 if not ax.get_xlabel() and not ax.get_ylabel():
+                     xmin, xmax = ax.get_xlim()
+                     ymin, ymax = ax.get_ylim()
+                     if (xmin, xmax) == (0, 1) and (ymin, ymax) == (0, 1):
+                         return True
+         return False
+
 async def save_img(np_image, path):
-    cs = plt.contourf(np_image, levels=100)
-    plt.colorbar(cs)
-    plt.savefig(path)
+    fig, ax = plt.subplots()  
+    cs = ax.contourf(np_image, levels=100)
+    fig.colorbar(cs, ax=ax)
+    fig.savefig(path)
+    plt.close(fig) 
 
 async def WriteResultFile(userID, processID, fileName, content):
     newFileName = f'Result{fileName}'

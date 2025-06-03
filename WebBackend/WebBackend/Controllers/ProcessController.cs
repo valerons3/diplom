@@ -115,7 +115,7 @@ namespace WebBackend.Controllers
 
             if (string.IsNullOrEmpty(method))
                 return BadRequest(new { message = "Необходимо передать название метода" });
-            if (method != "neural" && method != "classical")
+            if (method != "neural" && method != "classical" && method != "phase-denoising")
                 return BadRequest(new { message = "Не верное название метода" });
 
             string? jwtToken = Request.Headers["Authorization"]
