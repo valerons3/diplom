@@ -124,7 +124,7 @@ namespace WebBackend.Controllers
 
         /// <summary>
         /// Загрузка файла на обработку. В строке запроса указать название метода обработки
-        /// 'neural'. Другой способ сокомандник зажал
+        /// 'neural' или 'phase-denoising'
         /// </summary>
         /// <returns>Метаданные</returns>
         /// <response code="400">Проблемы с JWT/не верное название метода/файл не передан. Ответ: JSON { "message" = message }</response>
