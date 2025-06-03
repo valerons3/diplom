@@ -12,8 +12,8 @@ using WebBackend.Data;
 namespace WebBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250507201344_ChangeDatabase")]
-    partial class ChangeDatabase
+    [Migration("20250603205946_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace WebBackend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("PhaseImage")
+                    b.Property<string>("InputPhaseImage")
                         .HasColumnType("text");
 
                     b.Property<string>("ProcessMethod")
@@ -55,6 +55,9 @@ namespace WebBackend.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("ResultData")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ResultPhaseImage")
                         .HasColumnType("text");
 
                     b.Property<string>("Status")

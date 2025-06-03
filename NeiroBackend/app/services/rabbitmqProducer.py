@@ -1,4 +1,3 @@
-
 import aio_pika
 import json
 import uuid
@@ -20,15 +19,12 @@ async def send_message_to_queue(rabbit_data: RabbitData):
         # Создаем канал
         channel = await connection.channel()
         
-        # Декларация очереди, если она не существует
         queue = await channel.declare_queue(rabbit_config["SenderQueue"], durable=True)
         
         # Преобразуем модель RabbitData в JSON
         message_body = rabbit_data.to_json()
         
-        # Отправляем сообщение в очередь
         await channel.default_exchange.publish(
             aio_pika.Message(body=message_body.encode('utf-8')),
             routing_key=rabbit_config["SenderQueue"]
         )
-        print(f"📤 Сообщение отправлено в очередь {rabbit_config['SenderQueue']}: {message_body}")

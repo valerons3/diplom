@@ -14,35 +14,42 @@ namespace WebBackend.Services
             httpClient = new HttpClient();
         }
 
-        public async Task<(bool Success, string? FilePath, string? ImagePath)> DownloadAndSaveResultFilesAsync(RabbitData rabbitData)
+        public async Task<(bool Success, string? FilePath, string? ResultImagePath, string? InputImagePath)> DownloadAndSaveResultFilesAsync(RabbitData rabbitData)
         {
             var responseFile = await httpClient.GetAsync(rabbitData.DownloadLink);
-            var responseImage = await httpClient.GetAsync(rabbitData.ImageDownloadLink);
+            var responseResultImage = await httpClient.GetAsync(rabbitData.ResultImageDownloadLink);
+            var responceInputImage = await httpClient.GetAsync(rabbitData.InputImageDownloadLink);
 
-            if (!responseFile.IsSuccessStatusCode || !responseImage.IsSuccessStatusCode)
+            if (!responseFile.IsSuccessStatusCode || !responseResultImage.IsSuccessStatusCode || !responceInputImage.IsSuccessStatusCode)
             {
                 logger.LogError("Ошибка при скачивании файлов результата. FileResponse: {FileResponse}, ImageResponse: " +
-                    "{ImageResponse}", responseFile.StatusCode, responseImage.StatusCode);
-                return (false, null, null);
+                    "{ImageResponse}", responseFile.StatusCode, responseResultImage.StatusCode);
+                return (false, null, null, null);
             }
 
 
-            var imageBytes = await responseImage.Content.ReadAsByteArrayAsync();
-            var imageName = rabbitData.ImageDownloadLink.Split("fileName=")[^1];
+            var resultImageBytes = await responseResultImage.Content.ReadAsByteArrayAsync();
+            var resultImageName = rabbitData.ResultImageDownloadLink.Split("fileName=")[^1];
+
+            var inputImageBytes = await responceInputImage.Content.ReadAsByteArrayAsync();
+            var inputImageName = rabbitData.InputImageDownloadLink.Split("fileName=")[^1];
+            
             var fileBytes = await responseFile.Content.ReadAsByteArrayAsync();
             var fileName = rabbitData.DownloadLink.Split("fileName=")[^1];
 
-            var resultSaveImage = await SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID,
-                imageBytes, imageName);
+            var resultSaveResultImage = await SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID,
+                resultImageBytes, resultImageName);
+            var resultSaveInputImage = await SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID,
+                inputImageBytes, inputImageName);
             var resultSaveFile = await SaveResultFileAsync(rabbitData.UserID, rabbitData.ProcessID, 
                 fileBytes, fileName);
 
-            if (!resultSaveFile.Sucess || !resultSaveImage.Sucess)
+            if (!resultSaveFile.Sucess || !resultSaveResultImage.Sucess || !resultSaveInputImage.Sucess)
             {
-                return (false, null, null);
+                return (false, null, null, null);
             }
 
-            return (true, resultSaveFile.Message, resultSaveImage.Message);
+            return (true, resultSaveFile.Message, resultSaveResultImage.Message, resultSaveInputImage.Message);
         }
 
         public async Task<(bool Sucess, string? Message)> SaveResultFileAsync(Guid userId, Guid processId,

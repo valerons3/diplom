@@ -92,7 +92,7 @@ public class RabbitConsumerService : BackgroundService
                     }
                     
                     var resultUpdateData = await dataRepository.ChangeDataIfSuccessAsync(rabbitData, 
-                        resultDownloadSave.FilePath, resultDownloadSave.ImagePath);
+                        resultDownloadSave.FilePath, resultDownloadSave.ResultImagePath, resultDownloadSave.InputImagePath);
                     if (!resultUpdateData.Success)
                     {
                         return;

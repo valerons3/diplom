@@ -38,7 +38,7 @@ namespace WebBackend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("PhaseImage")
+                    b.Property<string>("InputPhaseImage")
                         .HasColumnType("text");
 
                     b.Property<string>("ProcessMethod")
@@ -52,6 +52,9 @@ namespace WebBackend.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("ResultData")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ResultPhaseImage")
                         .HasColumnType("text");
 
                     b.Property<string>("Status")

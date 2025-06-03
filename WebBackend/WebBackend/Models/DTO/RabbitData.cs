@@ -10,6 +10,7 @@ namespace WebBackend.Models.DTO
         public ProcessStatus Status { get; set; } = ProcessStatus.Processing;
         public string ProcessMethod { get; set; } = string.Empty;
         public string? DownloadLink { get; set; } = null!;
-        public string? ImageDownloadLink { get; set; } = null!;
+        public string? ResultImageDownloadLink { get; set; } = null!;
+        public string? InputImageDownloadLink { get; set; } = null!;
     }
 }

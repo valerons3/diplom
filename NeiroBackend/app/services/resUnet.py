@@ -162,4 +162,5 @@ def unwrap_phase(filePath: str):
         "status": ProcessStatus.SUCCESS,
         "processing_time": str(processing_time),
         "content": res.squeeze().numpy(),
+        "contentInputFile": torch_phase.squeeze().numpy()
     }
