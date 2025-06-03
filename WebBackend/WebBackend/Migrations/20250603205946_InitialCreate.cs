@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebBackend.Migrations
 {
     /// <inheritdoc />
-    public partial class ChangeDatabase : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -98,7 +98,8 @@ namespace WebBackend.Migrations
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     InputData = table.Column<string>(type: "text", nullable: false),
                     ResultData = table.Column<string>(type: "text", nullable: true),
-                    PhaseImage = table.Column<string>(type: "text", nullable: true),
+                    ResultPhaseImage = table.Column<string>(type: "text", nullable: true),
+                    InputPhaseImage = table.Column<string>(type: "text", nullable: true),
                     ProcessingTime = table.Column<TimeSpan>(type: "interval", nullable: true),
                     ProcessMethod = table.Column<string>(type: "text", nullable: false),
                     CommentResult = table.Column<string>(type: "text", nullable: true),

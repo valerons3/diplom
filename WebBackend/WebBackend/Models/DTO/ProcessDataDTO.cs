@@ -8,7 +8,8 @@ namespace WebBackend.Models.DTO
         public ProcessStatus Status { get; set; }
         public string InputData { get; set; } = string.Empty;
         public string? ResultData { get; set; } = null!;
-        public string? PhaseImage { get; set; } = null!;
+        public string? ResultPhaseImage { get; set; } = null!;
+        public string? InputPhaseImage { get; set; } = null!;
         public TimeSpan? ProcessingTime { get; set; } = null!;
         public string ProcessMethod { get; set; } = string.Empty;
         public string? CommentResult { get; set; } = null!;

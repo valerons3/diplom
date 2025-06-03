@@ -34,16 +34,18 @@ async def process_message(message: aio_pika.IncomingMessage):
         if data.ProcessMethod == 'neural':
             result = unwrap_phase(inputFilePath)
             if result['status'] == ProcessStatus.SUCCESS:
-                newFileName = await WriteResultFile(data.UserID, data.ProcessID, fileName, result['content'])
+                newFileName = await WriteResultFile(data.UserID, data.ProcessID, fileName, result['content'], result["contentInputFile"])
                 downloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName={newFileName}'
-                imageDownloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName=Phase.png'
+                resultImageDownloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName=ResultPhase.png'
+                inputImageDownloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName=InputPhase.png'
                 rabbitData = RabbitData(
                 UserID=data.UserID,
                 ProcessID=data.ProcessID,
                 Status=ProcessStatus.SUCCESS,
                 ProcessMethod=data.ProcessMethod,
                 DownloadLink=downloadLink,
-                ImageDownloadLink=imageDownloadLink,
+                ResultImageDownloadLink=resultImageDownloadLink,
+                InputImageDownloadLink=inputImageDownloadLink,
                 ProcessingTime=result["processing_time"]
                 )
                 await send_message_to_queue(rabbitData)
@@ -62,16 +64,18 @@ async def process_message(message: aio_pika.IncomingMessage):
         if data.ProcessMethod == 'phase-denoising':
             result = unwrap_phase_ddn(inputFilePath)
             if result['status'] == ProcessStatus.SUCCESS:
-                newFileName = await WriteResultFile(data.UserID, data.ProcessID, fileName, result['content'])
+                newFileName = await WriteResultFile(data.UserID, data.ProcessID, fileName, result['content'], result["contentInputFile"])
                 downloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName={newFileName}'
-                imageDownloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName=Phase.png'
+                resultImageDownloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName=ResultPhase.png'
+                inputImageDownloadLink = f'{CONFIG["FileShare"]["BaseURL"]}userID={data.UserID}&processID={data.ProcessID}&fileName=InputPhase.png'
                 rabbitData = RabbitData(
                 UserID=data.UserID,
                 ProcessID=data.ProcessID,
                 Status=ProcessStatus.SUCCESS,
                 ProcessMethod=data.ProcessMethod,
                 DownloadLink=downloadLink,
-                ImageDownloadLink=imageDownloadLink,
+                ResultImageDownloadLink=resultImageDownloadLink,
+                InputImageDownloadLink=inputImageDownloadLink,
                 ProcessingTime=result["processing_time"]
                 )
                 await send_message_to_queue(rabbitData)

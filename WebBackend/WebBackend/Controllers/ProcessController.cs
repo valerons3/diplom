@@ -69,7 +69,8 @@ namespace WebBackend.Controllers
                 Status = p.Status,
                 InputData = p.InputData,
                 ResultData = p.ResultData,
-                PhaseImage = p.PhaseImage,
+                ResultPhaseImage = p.ResultPhaseImage,
+                InputPhaseImage = p.InputPhaseImage,
                 ProcessingTime = p.ProcessingTime,
                 ProcessMethod = p.ProcessMethod,
                 CommentResult = p.CommentResult,
@@ -95,7 +96,8 @@ namespace WebBackend.Controllers
                 Status = data.Status,
                 InputData = data.InputData,
                 ResultData = data.ResultData,
-                PhaseImage = data.PhaseImage,
+                ResultPhaseImage = data.ResultPhaseImage,
+                InputPhaseImage = data.InputPhaseImage,
                 ProcessingTime = data.ProcessingTime,
                 ProcessMethod = data.ProcessMethod,
                 CommentResult = data.CommentResult,
@@ -147,7 +149,8 @@ namespace WebBackend.Controllers
                 UserId = payload.Id,
                 InputData = resultSaveFile.Message,
                 ResultData = null,
-                PhaseImage = null,
+                ResultPhaseImage = null,
+                InputPhaseImage = null,
                 ProcessingTime = null,
                 ProcessMethod = method,
                 CommentResult = null,
@@ -172,7 +175,8 @@ namespace WebBackend.Controllers
                 ProcessingTime = null,
                 ProcessMethod = method,
                 DownloadLink = downloadLink,
-                ImageDownloadLink = null
+                ResultImageDownloadLink = null,
+                InputImageDownloadLink = null
             };
             var publishResult = rabbitService.Publish(rabbitData);
             if (!publishResult.Success)
@@ -183,5 +187,5 @@ namespace WebBackend.Controllers
             return Ok(new { message = "Данные отправлены на обработку", id = processId });
         }
     }
-
+    
 }

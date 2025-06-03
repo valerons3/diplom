@@ -63,7 +63,7 @@ namespace WebBackend.Repositories
 
                 existingProcessData.Status = status;
                 existingProcessData.ResultData = resultData;
-                existingProcessData.PhaseImage = imageData;
+                existingProcessData.ResultPhaseImage = imageData;
                 existingProcessData.ProcessingTime = processingTime;
                 if (status == ProcessStatus.Failed)
                 {
@@ -97,7 +97,7 @@ namespace WebBackend.Repositories
         }
 
         public async Task<(bool Success, string? Message)> ChangeDataIfSuccessAsync(RabbitData data, string filePath,
-            string imagePath)
+            string resultImagePath, string inputImagePath)
         {
             try
             {
@@ -112,7 +112,8 @@ namespace WebBackend.Repositories
                 existingProcess.Status = data.Status;
                 existingProcess.ProcessingTime = data.ProcessingTime;
                 existingProcess.ResultData = filePath;
-                existingProcess.PhaseImage = imagePath;
+                existingProcess.ResultPhaseImage = resultImagePath;
+                existingProcess.InputPhaseImage = inputImagePath;
 
                 context.ProccesedDatas.Update(existingProcess);
                 await context.SaveChangesAsync();

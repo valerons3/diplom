@@ -143,7 +143,6 @@ def unwrap_phase_ddn(filePath: str):
         state_dict = {k.replace('PhaseFilter.component_3.', 'phase.comp3.'): v for k, v in state_dict.items()}
         #state_dict = {k.replace('features.dense_block1.bottle.', 'features.dense_block1.bn.'): v for k, v in state_dict.items()}
         
-        print(f'[DICT] {state_dict.keys()}')
 
         model.load_state_dict(state_dict, strict=False)
         model.eval()
@@ -173,6 +172,7 @@ def unwrap_phase_ddn(filePath: str):
             "status": ProcessStatus.SUCCESS,
             "processing_time": str(processing_time),
             "content": output.squeeze().numpy(),
+            "contentInputFile": tensor_data.squeeze().numpy()
         }
         
     except Exception as e:

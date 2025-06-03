@@ -74,16 +74,18 @@ async def save_img(np_image, path):
     fig.savefig(path)
     plt.close(fig) 
 
-async def WriteResultFile(userID, processID, fileName, content):
+async def WriteResultFile(userID, processID, fileName, content, contentInputImage):
     newFileName = f'Result{fileName}'
     fullPath = os.path.join(BASE_DIR, str(userID), str(processID), "Result", newFileName)
 
     os.makedirs(os.path.dirname(fullPath), exist_ok=True)
     scipy.io.savemat(fullPath, {"content": content})#сохраняет с ключом content 
 
-    fullPathImg = os.path.join(BASE_DIR, str(userID), str(processID), "Result", 'Phase.png')
+    fullResultPathImg = os.path.join(BASE_DIR, str(userID), str(processID), "Result", 'ResultPhase.png')
+    fullInputPathImg = os.path.join(BASE_DIR, str(userID), str(processID), "Result", 'InputPhase.png')
     
-    await save_img(content, fullPathImg)
+    await save_img(content, fullResultPathImg)
+    await save_img(contentInputImage, fullInputPathImg)
     
     return newFileName
 
